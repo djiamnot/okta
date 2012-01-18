@@ -1,0 +1,69 @@
+#N canvas 143 95 815 587 10;
+#X declare -path ./;
+#X declare -path ./abs;
+#X declare -path ./rj;
+#X declare -path ./xjimmies;
+#X declare -patch ../rj;
+#X obj 626 31 declare -path ./;
+#X obj 626 51 declare -path ./abs;
+#X obj 627 71 declare -path ./rj;
+#X obj 15 6 cnv 15 160 50 empty empty OKTA 10 24 1 48 -233017 -66577
+0;
+#X obj 77 289 8player -------------;
+#X obj 72 508 dac~ 1 2 3 4 5 6 7 8;
+#X obj 627 91 declare -path ./xjimmies;
+#X obj 302 304 meter8~;
+#X obj 312 29 playlist all 300 200 {Helvetica 10 bold} #457782 yellow
+black red;
+#X obj 346 233 prepend set;
+#X msg 346 255 /home/mis/src/okta/data/8_Channel_ID.wav;
+#X msg 295 237 file \$1;
+#X msg 211 228 start;
+#X msg 194 206 loop \$1;
+#X obj 194 186 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 224 247 stop;
+#X msg 185 164 startagain;
+#X obj 51 347 eq1;
+#X text 624 10 declare some paths...;
+#N canvas 0 24 450 300 README 0;
+#X text 13 19 This patch relies on some dependencies. First of all
+\, it should work with pdextended flavour of pd. The patch was developed
+with version 0.42.5 of pdextended.;
+#X text 14 58 3rd party dependencies:;
+#X text 17 76 rjlib - included in the rj folder but developed by Frank
+Barknecht/Digital Jokey as part of the RjDj application: https://github.com/rjdj/rjlib
+;
+#X text 15 116 xjimmies - by Zack Settel \, part of the pdsheefa library
+\, only the needed abstractions are included in the xjimmies folder.
+xjimmies live here: http://code.sat.qc.ca/trac/pdsheefa;
+#X text 15 168 gridflow - gridflow.ca. Should be installed via the
+standard external library installation procedure (as per pd);
+#X restore 631 127 pd README;
+#X connect 4 0 7 0;
+#X connect 4 0 17 0;
+#X connect 4 1 7 1;
+#X connect 4 1 17 0;
+#X connect 4 2 7 2;
+#X connect 4 2 17 0;
+#X connect 4 3 7 3;
+#X connect 4 3 17 0;
+#X connect 4 4 7 4;
+#X connect 4 4 17 0;
+#X connect 4 5 7 5;
+#X connect 4 5 17 0;
+#X connect 4 6 7 6;
+#X connect 4 6 17 0;
+#X connect 4 7 7 7;
+#X connect 4 7 17 0;
+#X connect 8 0 9 0;
+#X connect 8 0 11 0;
+#X connect 9 0 10 0;
+#X connect 11 0 4 1;
+#X connect 12 0 4 1;
+#X connect 13 0 4 1;
+#X connect 14 0 13 0;
+#X connect 15 0 4 1;
+#X connect 16 0 4 1;
+#X connect 17 0 5 0;
+#X connect 17 0 5 1;

@@ -1,0 +1,105 @@
+#N canvas 80 58 861 508 10;
+#X declare -patch ../rj;
+#X obj 47 286 *~ 0.3;
+#X obj 60 333 biquad~;
+#X obj 690 27 declare -patch ../rj;
+#X obj 6 333 biquad~;
+#X obj 197 250 u_lowpass 1000 100;
+#X obj 187 333 biquad~;
+#X obj 312 251 u_bandpass1 500 100;
+#X obj 181 108 hsl 90 10 0 500 0 0 \$0-lp-freq empty lowpass 50 5 1
+10 -262144 -1 -1 1699 1;
+#X obj 181 120 hsl 90 10 0 200 0 0 \$0-lp-bw empty bandwidth 40 5 1
+10 -262144 -1 -1 800 1;
+#X obj 181 67 hsl 90 10 500 2000 0 0 \$0-bp-freq empty bandpass 50
+5 1 10 -262144 -1 -1 2398 1;
+#X obj 181 79 hsl 90 10 0 200 0 0 \$0-bp-bw empty bandwidth 40 5 1
+10 -262144 -1 -1 1296 1;
+#X obj 183 22 hsl 90 10 2000 20000 0 0 \$0-hp-freq empty highpass 50
+5 1 10 -262144 -1 -1 3900 1;
+#X obj 183 34 hsl 90 10 0 200 0 0 \$0-hp-bw empty bandwidth 40 5 1
+10 -262144 -1 -1 400 1;
+#X obj 277 109 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8
+-262144 -1 -1 95.4494 256;
+#X obj 277 120 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8
+-262144 -1 -1 17.9775 256;
+#X obj 277 67 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8 -262144
+-1 -1 904.157 256;
+#X obj 277 78 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8 -262144
+-1 -1 29.1236 256;
+#X obj 279 23 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8 -262144
+-1 -1 9887.64 256;
+#X obj 279 34 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8 -262144
+-1 -1 8.98876 256;
+#X obj 179 133 nbx 5 9 -1e+37 1e+37 0 0 \$0-lp-gain empty gain 20 4
+1 8 -262144 -1 -1 0.69 256;
+#X obj 179 93 nbx 5 9 -1e+37 1e+37 0 0 \$0-bp-gain empty gain 20 4
+1 8 -262144 -1 -1 0.55 256;
+#X obj 181 48 nbx 5 9 -1e+37 1e+37 0 0 \$0-hp-gain empty gain 20 4
+1 8 -262144 -1 -1 0.62 256;
+#X obj 2 286 *~ 0.3;
+#X obj 90 279 *~ 0.3;
+#X obj 136 178 r \$0-bp-gain;
+#X obj 136 198 r \$0-lp-gain;
+#X obj 136 158 r \$0-hp-gain;
+#X obj 433 252 u_highpass 2000 100;
+#X obj 433 229 r \$0-hp-freq;
+#X obj 544 227 r \$0-hp-bw;
+#X obj 364 229 r \$0-bp-bw;
+#X obj 313 209 r \$0-bp-freq;
+#X obj 243 231 r \$0-lp-bw;
+#X obj 214 214 r \$0-lp-freq;
+#X msg 377 47 15955 85.39 0.1 1376 132.5 0.3 213.4 69.66 0.4;
+#X obj 377 69 unpack f f f f f f f f f;
+#X obj 377 26 loadbang;
+#X obj 33 170 inlet~;
+#X obj 37 453 outlet~;
+#X obj 99 220 * 0.01;
+#X obj 109 230 * 0.01;
+#X obj 119 241 * 0.01;
+#X text 553 68 some arbitrary defaults;
+#X text 432 341 this is a "EQ". It has the capacity of dividing an
+audio stream into 3 filtered signals. Lowpass \, bandpass and highpass.
+;
+#X connect 0 0 1 0;
+#X connect 1 0 38 0;
+#X connect 3 0 38 0;
+#X connect 4 0 3 0;
+#X connect 5 0 38 0;
+#X connect 6 0 1 0;
+#X connect 7 0 13 0;
+#X connect 8 0 14 0;
+#X connect 9 0 15 0;
+#X connect 10 0 16 0;
+#X connect 11 0 17 0;
+#X connect 12 0 18 0;
+#X connect 22 0 3 0;
+#X connect 23 0 5 0;
+#X connect 24 0 40 0;
+#X connect 25 0 41 0;
+#X connect 26 0 39 0;
+#X connect 27 0 5 0;
+#X connect 28 0 27 0;
+#X connect 29 0 27 1;
+#X connect 30 0 6 1;
+#X connect 31 0 6 0;
+#X connect 32 0 4 1;
+#X connect 33 0 4 0;
+#X connect 34 0 35 0;
+#X connect 35 0 11 0;
+#X connect 35 1 12 0;
+#X connect 35 2 21 0;
+#X connect 35 3 9 0;
+#X connect 35 4 10 0;
+#X connect 35 5 20 0;
+#X connect 35 6 7 0;
+#X connect 35 7 8 0;
+#X connect 35 8 19 0;
+#X connect 36 0 34 0;
+#X connect 37 0 0 0;
+#X connect 37 0 22 0;
+#X connect 37 0 23 0;
+#X connect 39 0 23 1;
+#X connect 40 0 0 1;
+#X connect 41 0 22 1;
+#X coords 0 -1 1 1 160 140 1 170 10;

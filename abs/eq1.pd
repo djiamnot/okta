@@ -15,9 +15,9 @@
 #X obj 181 79 hsl 90 10 0 200 0 0 \$0-bp-bw empty bandwidth 40 5 1
 10 -262144 -1 -1 5896 1;
 #X obj 183 22 hsl 90 10 2000 20000 0 0 \$0-hp-freq empty highpass 50
-5 1 10 -262144 -1 -1 6300 1;
+5 1 10 -262144 -1 -1 6900 1;
 #X obj 183 34 hsl 90 10 0 200 0 0 \$0-hp-bw empty bandwidth 40 5 1
-10 -262144 -1 -1 4100 1;
+10 -262144 -1 -1 3800 1;
 #X obj 277 109 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8
 -262144 -1 -1 213.427 256;
 #X obj 277 120 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8
@@ -27,20 +27,20 @@
 #X obj 277 78 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8 -262144
 -1 -1 132.494 256;
 #X obj 279 23 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8 -262144
--1 -1 14741.6 256;
+-1 -1 15955.1 256;
 #X obj 279 34 nbx 5 9 -1e+37 1e+37 0 0 empty empty empty 0 -8 1 8 -262144
--1 -1 92.1348 256;
+-1 -1 85.3933 256;
 #X obj 179 133 nbx 5 9 -1e+37 1e+37 0 0 \$0-lp-gain empty gain 20 4
-1 8 -262144 -1 -1 0.4 256;
+1 8 -262144 -1 -1 27.4 256;
 #X obj 179 93 nbx 5 9 -1e+37 1e+37 0 0 \$0-bp-gain empty gain 20 4
-1 8 -262144 -1 -1 0.3 256;
+1 8 -262144 -1 -1 22.3 256;
 #X obj 181 48 nbx 5 9 -1e+37 1e+37 0 0 \$0-hp-gain empty gain 20 4
-1 8 -262144 -1 -1 0.14 256;
+1 8 -262144 -1 -1 14.1 256;
 #X obj 2 286 *~ 0.3;
 #X obj 90 279 *~ 0.3;
-#X obj 136 178 r \$0-bp-gain;
-#X obj 136 198 r \$0-lp-gain;
-#X obj 136 158 r \$0-hp-gain;
+#X obj 95 135 r \$0-bp-gain;
+#X obj 95 155 r \$0-lp-gain;
+#X obj 95 115 r \$0-hp-gain;
 #X obj 433 252 u_highpass 2000 100;
 #X obj 433 229 r \$0-hp-freq;
 #X obj 544 227 r \$0-hp-bw;

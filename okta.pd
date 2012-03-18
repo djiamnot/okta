@@ -1,17 +1,28 @@
-#N canvas 0 24 1024 711 10;
+#N canvas 0 24 1024 690 10;
 #X declare -path ./;
 #X declare -path ./abs;
 #X declare -path ./rj;
 #X declare -path ./xjimmies;
+#X declare -lib gridflow;
+#X declare -lib iemmatrix;
 #X declare -path ../rj;
-#X obj 626 31 declare -path ./;
-#X obj 626 51 declare -path ./abs;
-#X obj 627 71 declare -path ./rj;
+#X declare -path ../rj;
+#X declare -path ../rj;
+#X declare -path ../rj;
+#X declare -path ../rj;
+#X declare -path ../rj;
+#X declare -path ../rj;
+#X declare -path ../rj;
+#X declare -path ../rj;
+#X declare -path ../rj;
+#X obj 846 1 declare -path ./;
+#X obj 846 21 declare -path ./abs;
+#X obj 847 41 declare -path ./rj;
 #X obj 15 6 cnv 15 160 50 empty empty OKTA 10 24 1 48 -233017 -66577
 0;
 #X obj 77 289 8player -------------;
 #X obj 72 508 dac~ 1 2 3 4 5 6 7 8;
-#X obj 627 91 declare -path ./xjimmies;
+#X obj 847 61 declare -path ./xjimmies;
 #X obj 302 304 meter8~;
 #X obj 312 29 playlist all 300 200 {Helvetica 12 bold} #457782 yellow
 black red;
@@ -25,7 +36,7 @@ Project/Samples/Recorded/0001 4-Audio.aif;
 1;
 #X msg 224 247 stop;
 #X msg 185 164 startagain;
-#X text 624 10 declare some paths...;
+#X text 844 -20 declare some paths...;
 #N canvas 0 24 450 300 README 0;
 #X text 13 19 This patch relies on some dependencies. First of all
 \, it should work with pdextended flavour of pd. The patch was developed
@@ -39,41 +50,80 @@ Barknecht/Digital Jokey as part of the RjDj application: https://github.com/rjdj
 xjimmies live here: http://code.sat.qc.ca/trac/pdsheefa;
 #X text 15 168 gridflow - gridflow.ca. Should be installed via the
 standard external library installation procedure (as per pd);
-#X restore 631 127 pd README;
+#X restore 848 124 pd README;
 #X obj 312 454 meter8~;
 #X msg 301 -4 location /Users/stevebates/okta/snd;
 #X obj 298 -30 loadbang;
-#X msg 590 329 current;
-#X floatatom 549 439 8 0 0 0 - - -;
-#X floatatom 607 472 5 0 0 0 - - -;
-#X text 572 468 okta;
+#X msg 760 327 current;
+#X floatatom 719 439 8 0 0 0 - - -;
+#X floatatom 777 472 5 0 0 0 - - -;
+#X text 742 468 okta;
 #X text 492 439 sampleID;
-#X symbolatom 673 466 30 0 0 0 - - -;
-#X text 647 466 date;
-#X obj 682 425 print message;
-#X floatatom 711 342 5 0 0 0 - - -;
-#X msg 621 366 state;
-#X obj 588 391 oktadb fieldsound.dyndns.info 7778;
-#X obj 590 305 metro 30000;
-#X obj 567 307 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X symbolatom 843 466 30 0 0 0 - - -;
+#X text 817 466 date;
+#X obj 852 425 print message;
+#X floatatom 881 342 5 0 0 0 - - -;
+#X msg 791 366 state;
+#X obj 758 391 oktadb fieldsound.dyndns.info 7778;
+#X obj 760 305 metro 30000;
+#X obj 760 286 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 51 347 eq1;
+#N canvas 0 24 802 504 matrix 0;
+#X obj 120 369 #to_list;
+#X obj 120 196 r matrix;
+#X obj 397 251 s matrix;
+#X obj 120 237 #many tgl 8 8;
+#X obj 120 216 #import (8 8);
+#X obj 120 388 matrix 8 8;
+#X obj 72 458 mtx_mul~ 8 8 5000 ..................;
+#X obj 292 370 prepend set;
+#X msg 292 393 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1
+0 0 0 0;
+#X msg 451 53 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 1;
+#X msg 450 193 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0;
+#X msg 450 146 1 0 0 0 0 0 1 1 1 0 0 0 0 0 1 1 0 1 0 0 0 1 0 1 0 1
+0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 1
+0 0 0 1;
+#X msg 451 100 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1
+0 0 0 0;
+#X connect 0 0 5 0;
+#X connect 0 0 7 0;
+#X connect 1 0 4 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 7 0 8 0;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;
+#X connect 11 0 2 0;
+#X connect 12 0 2 0;
+#X restore 465 591 pd matrix;
+#X obj 848 81 import gridflow;
+#X obj 848 102 import iemmatrix;
+#X obj 51 347 eq1 ch1;
+#X obj 705 150 localState;
 #X connect 4 0 7 0;
-#X connect 4 0 35 0;
+#X connect 4 0 38 0;
 #X connect 4 1 7 1;
-#X connect 4 1 35 0;
+#X connect 4 1 38 0;
 #X connect 4 2 7 2;
-#X connect 4 2 35 0;
+#X connect 4 2 38 0;
 #X connect 4 3 7 3;
-#X connect 4 3 35 0;
+#X connect 4 3 38 0;
 #X connect 4 4 7 4;
-#X connect 4 4 35 0;
+#X connect 4 4 38 0;
 #X connect 4 5 7 5;
-#X connect 4 5 35 0;
+#X connect 4 5 38 0;
 #X connect 4 6 7 6;
-#X connect 4 6 35 0;
+#X connect 4 6 38 0;
 #X connect 4 7 7 7;
-#X connect 4 7 35 0;
+#X connect 4 7 38 0;
 #X connect 8 0 9 0;
 #X connect 8 0 11 0;
 #X connect 9 0 10 0;
@@ -95,6 +145,6 @@ standard external library installation procedure (as per pd);
 #X connect 32 3 29 0;
 #X connect 33 0 22 0;
 #X connect 34 0 33 0;
-#X connect 35 0 5 0;
-#X connect 35 0 5 1;
-#X connect 35 0 19 0;
+#X connect 38 0 5 0;
+#X connect 38 0 5 1;
+#X connect 38 0 19 0;

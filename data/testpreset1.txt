@@ -1,0 +1,9 @@
+ch1/hp-bw 62.9213;
+ch1/hp-freq 15348.3;
+ch1/bp-bw 173.034;
+ch1/bp-freq 1241.57;
+ch1/lp-bw 116.854;
+ch1/lp-freq 314.607;
+ch1/lp-gain 79.7753;
+ch1/bp-gain 60.6742;
+ch1/hp-gain 70.7865;

@@ -1,0 +1,33 @@
+#+TITLE: OKTA software documentation
+#+AUTHOR: Michal Seta
+#+EMAIL: mis@artengine.ca
+
+* Overview
+* Running
+** Installation requirements
+   - pdextended version 0.42.5 (not tested with any other version)
+   - oktadb external (Geoffrey Jones)
+     It's actually included in the package in source form
+   - gridflow library (http://gridflow.ca)
+     Very useful for the audio matrix, notably the [#many] object and translating matrices to lists etc.
+   - rjlib (https://github.com/rjdj/rjlib)
+   - xjimmies (http://code.sat.qc.ca/trac/pdsheefa)
+* Components
+** Play list
+** Looping player
+** EQ
+** Audio Matrix
+   Audio matrix is implemented using mtx~ family of objects (bundled
+   with pdextended) and [#many tgl] for UI. The Matrix works as
+   follows: inputs are mapped horizontally, outputs vertically so the
+   followig arrangements gives a direct channel mapping
+   (i.e. input1->outpu1, input2->output2 etc.):
+
+   |      | in1 | in2 | in3 | in4 |
+   | out1 | x   |     |     |     |
+   | out2 |     | x   |     |     |
+   | out3 |     |     | x   |     |
+   | out4 |     |     |     | x   |
+   
+* Presets
+* Hacking

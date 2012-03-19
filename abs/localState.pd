@@ -37,7 +37,7 @@ dispatcher);
 #X obj 101 86 bng 15 250 50 0 empty empty SAVE 17 7 0 10 -262144 -1
 -1;
 #X obj 100 67 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
--1 0;
+-1 2;
 #X obj 103 230 list prepend add;
 #X obj 103 252 list trim;
 #X msg 390 258 read \$1 \, rewind;
@@ -55,6 +55,7 @@ dispatcher);
 #X obj 29 588 print DBG_STATE;
 #X obj 214 121 t b b b;
 #X msg 299 134 clear;
+#X obj 377 332 print SAVING:;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 11 0;
@@ -86,6 +87,7 @@ dispatcher);
 #X connect 32 0 38 0;
 #X connect 33 0 34 0;
 #X connect 34 0 13 0;
+#X connect 34 0 50 0;
 #X connect 35 0 13 0;
 #X connect 36 0 13 0;
 #X connect 37 0 13 0;

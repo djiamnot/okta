@@ -1,0 +1,8 @@
+#N canvas 271 289 450 300 10;
+#X obj 107 41 r \$1-\$2-\$3;
+#X obj 107 63 makefilename \$3_%d;
+#X obj 107 105 s \$1-g_\$2-\$3;
+#X obj 107 85 prepend label;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;

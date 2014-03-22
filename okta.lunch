@@ -1,0 +1,7 @@
+#!/usr/bin/env lunch
+# -*- python -*-
+
+add_command("spinserver --scene-id okta", identifier="spinserver")
+add_command("spinviewer --scene-id okta", identifier="spinviewer")
+add_command("pd-extended _main.pd", identifier="pd")
+add_command("pyospat -p 18033 -L OCTO", identifier="pyospat")

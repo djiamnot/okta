@@ -133,7 +133,7 @@ setMediaURI plugin://PulsarSampler \, /pulse\$1 setParam path \$2 \,
 #X obj 6 -216 sel ReCollect;
 #X obj 858 -127 s \$0-to-SPIN-TCP;
 #X obj 464 -45 nbx 5 14 -1e+37 1e+37 0 0 empty count_media num_of_soundfiles
-0 -8 0 10 -4034 -1 -1 0 256;
+0 -8 0 10 -4034 -1 -1 167 256;
 #X obj 6 -194 s __init;
 #X obj 809 -298 declare -path abs;
 #X obj 809 -279 declare -path rj;
@@ -141,7 +141,7 @@ setMediaURI plugin://PulsarSampler \, /pulse\$1 setParam path \$2 \,
 12 0 10 -233017 -66577 0;
 #X obj 26 -111 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 648 126 1009 665 audio_ctl+spin 0;
+#N canvas 648 127 1009 665 audio_ctl+spin 0;
 #X msg 57 67 createNode listener0 Listener;
 #X obj 550 131 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
 black red;
@@ -309,7 +309,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam stop 1;
 #X connect 29 0 0 0;
 #X connect 30 0 31 0;
 #X restore 16 57 pd instrument_controls;
-#N canvas 571 104 450 300 base_conf 1;
+#N canvas 571 105 450 300 base_conf 1;
 #X obj 34 207 shell;
 #X obj 34 148 bng 15 250 50 0 empty __init init_media_count 17 7 0
 10 -262144 -1 -1;
@@ -363,7 +363,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam stop 1;
 #X symbolatom 478 -310 10 0 0 0 - - -;
 #X obj 170 -171 cnv 15 280 255 empty empty Show_control 20 12 0 10
 -233017 -66577 0;
-#N canvas 1176 424 714 629 physics 0;
+#N canvas 559 448 714 629 physics 0;
 #X obj 264 104 until;
 #N canvas 571 157 450 300 velocities 0;
 #X obj 124 53 inlet;
@@ -412,7 +412,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam stop 1;
 #X msg 436 80 0 -1 0 0;
 #X msg 436 104 0 0 1 0;
 #X msg 434 125 0 0 -1 0;
-#X msg 166 217 /constrained0 setVelocity 1 0.7 0;
+#X msg -6 206 /constrained0 setVelocity 1 0.7 0;
 #X msg -44 100 /snd0 setParam play 1 \, /snd0 setParam loop 1 \, /snd0
 setParam mul 5;
 #X msg 292 226 /constrained* setVelocity \$2 \$3 0;
@@ -505,7 +505,7 @@ setParam mul 5;
 #X restore 683 -33 pd physics;
 #X obj 6 93 cnv 15 160 150 empty empty Visualization 20 12 0 10 -233017
 -66577 0;
-#N canvas 677 537 978 459 speakers 1;
+#N canvas 801 566 978 459 speakers 0;
 #X obj 48 16 inlet;
 #X obj 19 251 s \$0-to-SPIN;
 #X msg 21 52 createNode speaker1 ShapeNode \, /speaker1 setTranslation
@@ -587,6 +587,7 @@ setParam mul 5;
 #X msg 550 285 \$1;
 #X msg 533 367 createNode speaker\$1 ShapeNode \, /speaker\$1 setTranslation
 \$2 \$3 0;
+#X obj 383 342 print;
 #X connect 0 0 2 0;
 #X connect 0 0 3 0;
 #X connect 0 0 4 0;
@@ -620,6 +621,7 @@ setParam mul 5;
 #X connect 23 0 26 0;
 #X connect 23 1 24 0;
 #X connect 24 0 25 1;
+#X connect 24 0 28 0;
 #X connect 25 0 27 0;
 #X connect 26 0 25 0;
 #X connect 27 0 13 0;

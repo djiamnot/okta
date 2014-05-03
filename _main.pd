@@ -1,4 +1,4 @@
-#N canvas 209 351 965 661 10;
+#N canvas 117 124 965 661 10;
 #X declare -lib mrpeach;
 #X declare -lib mrpeach;
 #X declare -lib mrpeach;
@@ -141,7 +141,7 @@ setMediaURI plugin://PulsarSampler \, /pulse\$1 setParam path \$2 \,
 12 0 10 -233017 -66577 0;
 #X obj 26 -111 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 648 127 1009 665 audio_ctl+spin 0;
+#N canvas 35 345 1009 665 audio_ctl+spin 1;
 #X msg 57 67 createNode listener0 Listener;
 #X obj 550 131 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
 black red;
@@ -184,6 +184,9 @@ setComputationMode 1 \,;
 #X obj 108 282 t a a;
 #X msg 112 446 /snd\$1 setDirectivityFlag 1 \, /snd\$1 setParam setMediaURI
 file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam stop 1;
+#X msg 357 622 createNode sin SoundNode \, /sin setDirectivityFlag
+1 \, /sin setParam setMediaURI plugin://SimpleSin \, /sin setParam
+play 1;
 #X connect 0 0 7 0;
 #X connect 1 0 12 0;
 #X connect 1 0 10 1;
@@ -221,12 +224,13 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam stop 1;
 #X connect 32 1 31 0;
 #X connect 33 0 7 0;
 #X connect 33 0 11 0;
+#X connect 34 0 7 0;
 #X restore 43 -111 pd audio_ctl+spin;
 #X obj 26 -131 del 2000;
 #X obj 26 -152 r __init;
 #X obj 6 -11 cnv 15 160 100 empty empty SoundNodes_controllers 20 12
 0 10 -233017 -66577 0;
-#N canvas 1117 302 738 487 instrument_controls 0;
+#N canvas 3 126 738 487 instrument_controls 1;
 #X obj 109 -2 sel 0 1 2 3 4;
 #X floatatom 96 195 5 0 0 0 - - -;
 #X obj 97 151 r cluster;
@@ -265,7 +269,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam stop 1;
 -1;
 #X obj 390 60 r manual_trig;
 #X obj 390 82 random 5;
-#X msg 410 368 /snd27 setParam play 1;
+#X msg 410 368 /snd25 setParam play 1;
 #X obj 306 353 s \$0-to-SPIN;
 #X obj 107 100 sfplayer_control \$0 4;
 #X obj 108 38 sfplayer_control \$0 1;
@@ -309,7 +313,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam stop 1;
 #X connect 29 0 0 0;
 #X connect 30 0 31 0;
 #X restore 16 57 pd instrument_controls;
-#N canvas 571 105 450 300 base_conf 1;
+#N canvas 571 111 450 300 base_conf 0;
 #X obj 34 207 shell;
 #X obj 34 148 bng 15 250 50 0 empty __init init_media_count 17 7 0
 10 -262144 -1 -1;
@@ -505,7 +509,7 @@ setParam mul 5;
 #X restore 683 -33 pd physics;
 #X obj 6 93 cnv 15 160 150 empty empty Visualization 20 12 0 10 -233017
 -66577 0;
-#N canvas 801 566 978 459 speakers 0;
+#N canvas 24 610 978 459 speakers 1;
 #X obj 48 16 inlet;
 #X obj 19 251 s \$0-to-SPIN;
 #X msg 21 52 createNode speaker1 ShapeNode \, /speaker1 setTranslation
@@ -536,7 +540,7 @@ setParam mul 5;
 #X obj 550 131 t b a;
 #X obj 550 241 pack f f;
 #X obj 550 263 t a a;
-#N canvas 260 570 637 366 coords 1;
+#N canvas 260 571 637 366 coords 0;
 #X obj 73 40 inlet;
 #X obj 73 62 unpack;
 #X obj 74 171 f;
@@ -628,7 +632,7 @@ setParam mul 5;
 #X restore 30 117 pd speakers;
 #X obj 14 117 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 67 152 738 585 LEDs 1;
+#N canvas 67 153 738 585 LEDs 0;
 #X obj 193 81 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 191 101 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144

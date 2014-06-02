@@ -11,8 +11,11 @@
    - rjlib (https://github.com/rjdj/rjlib)
    - xjimmies (http://code.sat.qc.ca/trac/pdsheefa)
    - spinframework (htp://spinframework.com)
-   - gridflow library (http://gridflow.ca)
-     Very useful for the audio matrix, notably the [#many] object and translating matrices to lists etc.
+   - pyo
+   - jack
+   - pyospat
+     - twisted
+     - txosc
 * Components
 ** Play list
 ** Looping player

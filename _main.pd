@@ -1,4 +1,4 @@
-#N canvas 815 108 965 661 10;
+#N canvas 815 109 965 661 10;
 #X declare -lib mrpeach;
 #X declare -lib mrpeach;
 #X declare -lib mrpeach;
@@ -139,7 +139,7 @@ setMediaURI plugin://PulsarSampler \, /pulse\$1 setParam path \$2 \,
 #X obj 809 -279 declare -path rj;
 #X obj 7 -170 cnv 15 160 155 empty empty SoundNodes_initializers 20
 12 0 10 -233017 -66577 0;
-#X obj 26 -111 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
+#X obj 26 -103 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
 -1 -1;
 #N canvas 868 118 1009 665 audio_ctl+spin 0;
 #X msg 57 67 createNode listener0 Listener;
@@ -225,7 +225,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X connect 33 0 7 0;
 #X connect 34 0 7 0;
 #X connect 34 0 11 0;
-#X restore 43 -111 pd audio_ctl+spin;
+#X restore 43 -103 pd audio_ctl+spin;
 #X obj 26 -131 del 2000;
 #X obj 26 -152 r __init;
 #X obj 6 -11 cnv 15 160 100 empty empty SoundNodes_controllers 20 12
@@ -313,7 +313,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X connect 29 0 0 0;
 #X connect 30 0 31 0;
 #X restore 16 57 pd instrument_controls;
-#N canvas 571 118 450 300 base_conf 1;
+#N canvas 571 120 450 300 base_conf 0;
 #X obj 34 207 shell;
 #X obj 34 148 bng 15 250 50 0 empty __init init_media_count 17 7 0
 10 -262144 -1 -1;
@@ -324,7 +324,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X obj 25 19 r __init;
 #X obj 25 41 t b b;
 #X text 111 27 create the box that contains the sound nodes;
-#N canvas 641 459 981 531 setCamerViewOnLuoda 0;
+#N canvas 641 460 981 531 setCamerViewOnLuoda 0;
 #X obj 128 84 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 147 79 set view for this example;
@@ -335,23 +335,23 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X obj 252 30 loadbang;
 #X obj 119 24 inlet;
 #X obj 135 48 t b b;
-#X msg 172 110 setTranslation -26.11 -20.85 -16.31 \, setOrientation
--386 -175 -51 0 -50;
 #X obj 547 24 subwidget-ViewCtl \$0;
 #X obj 347 40 r side_view;
 #X obj 356 63 r top_view;
 #X msg 191 144 setTranslation -0.7 0.15 55 \, setOrientation -90 0
 0;
-#X connect 0 0 9 0;
+#X msg 172 110 setTranslation -31.9 -27.99 -18.649 \, setOrientation
+-385 -178 -46;
+#X connect 0 0 13 0;
 #X connect 3 0 4 0;
 #X connect 5 0 2 1;
 #X connect 6 0 5 0;
 #X connect 7 0 8 0;
 #X connect 8 0 0 0;
 #X connect 8 1 5 0;
-#X connect 9 0 2 0;
-#X connect 11 0 9 0;
-#X connect 12 0 13 0;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 12 0 2 0;
 #X connect 13 0 2 0;
 #X restore 203 133 pd setCamerViewOnLuoda;
 #X obj 186 134 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
@@ -375,7 +375,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X symbolatom 478 -310 10 0 0 0 - - -;
 #X obj 170 -171 cnv 15 280 255 empty empty Show_control 20 12 0 10
 -233017 -66577 0;
-#N canvas 1194 240 714 629 physics 1;
+#N canvas 1194 241 714 629 physics 0;
 #X obj 264 104 until;
 #N canvas 571 157 450 300 velocities 0;
 #X obj 124 53 inlet;
@@ -525,7 +525,7 @@ setParam mul 5;
 #X restore 683 -33 pd physics;
 #X obj 6 93 cnv 15 160 150 empty empty Visualization 20 12 0 10 -233017
 -66577 0;
-#N canvas 608 565 1295 459 speakers 1;
+#N canvas 608 566 1295 459 speakers 1;
 #X obj 51 16 inlet;
 #X obj 51 117 until;
 #X obj 51 139 f;
@@ -932,7 +932,6 @@ file://\$2 \, /snd\$1 setParam play 1 \, /snd\$1 setParam loop 1;
 #X connect 5 0 4 0;
 #X connect 6 0 9 0;
 #X connect 13 0 14 0;
-#X connect 15 0 13 0;
 #X connect 16 0 15 0;
 #X connect 20 0 1 0;
 #X connect 25 0 24 0;

@@ -16,6 +16,8 @@
    - pyospat
      - twisted
      - txosc
+* Configuration
+  ~/.spinFramework/args
 * Components
 ** Play list
 ** Looping player

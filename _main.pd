@@ -1,4 +1,4 @@
-#N canvas 600 82 1197 852 10;
+#N canvas 639 69 1197 852 10;
 #X declare -path abs;
 #X declare -path rj;
 #X obj 6 -263 widget-spinConnect \$0;
@@ -183,7 +183,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X connect 27 0 30 0;
 #X connect 28 0 29 0;
 #X restore 16 57 pd instrument_controls;
-#N canvas 571 120 450 300 base_conf 0;
+#N canvas 902 55 450 300 base_conf 0;
 #X obj 34 207 shell;
 #X obj 34 148 bng 15 250 50 0 empty __init init_media_count 17 7 0
 10 -262144 -1 -1;
@@ -194,35 +194,42 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X obj 25 19 r __init;
 #X obj 25 41 t b b;
 #X text 111 27 create the box that contains the sound nodes;
-#N canvas 641 460 981 531 setCamerViewOnLuoda 0;
-#X obj 128 84 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#N canvas 680 435 981 531 setCamerViewOnLuoda 0;
+#X obj 78 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X text 147 79 set view for this example;
-#X obj 134 156 spin.toCamera \$0;
-#X msg 130 179 createNode grid GridNode;
-#X obj 130 199 s \$0-to-SPIN-TCP;
-#X msg 252 53 luoda;
-#X obj 252 30 loadbang;
-#X obj 119 24 inlet;
-#X obj 135 48 t b b;
+#X text 97 139 set view for this example;
+#X obj 95 290 spin.toCamera \$0;
+#X msg 80 319 createNode grid GridNode;
+#X obj 80 339 s \$0-to-SPIN-TCP;
+#X obj 69 84 inlet;
+#X obj 85 108 t b b;
 #X obj 547 24 subwidget-ViewCtl \$0;
-#X obj 347 40 r side_view;
-#X obj 356 63 r top_view;
-#X msg 191 144 setTranslation -0.7 0.15 55 \, setOrientation -90 0
+#X obj 297 100 r side_view;
+#X obj 306 123 r top_view;
+#X msg 140 204 setTranslation -0.7 0.15 55 \, setOrientation -90 0
 0;
-#X msg 172 110 setTranslation -31.9 -27.99 -18.649 \, setOrientation
+#X msg 122 170 setTranslation -31.9 -27.99 -18.649 \, setOrientation
 -385 -178 -46;
-#X connect 0 0 13 0;
+#X obj 400 73 hostname;
+#X obj 395 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 405 104 prepend set;
+#X msg 405 126 steve-bates.wireless.concordia.ca;
+#X obj 420 44 loadbang;
+#X connect 0 0 11 0;
 #X connect 3 0 4 0;
-#X connect 5 0 2 1;
-#X connect 6 0 5 0;
-#X connect 7 0 8 0;
-#X connect 8 0 0 0;
-#X connect 8 1 5 0;
-#X connect 10 0 13 0;
-#X connect 11 0 12 0;
-#X connect 12 0 2 0;
-#X connect 13 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 6 1 15 0;
+#X connect 8 0 11 0;
+#X connect 9 0 10 0;
+#X connect 10 0 2 0;
+#X connect 11 0 2 0;
+#X connect 12 0 14 0;
+#X connect 13 0 12 0;
+#X connect 14 0 15 0;
+#X connect 15 0 2 1;
+#X connect 16 0 12 0;
 #X restore 203 133 pd setCamerViewOnLuoda;
 #X obj 186 134 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
 -1 -1;
@@ -395,7 +402,7 @@ setParam mul 5;
 #X restore 1078 -92 pd physics;
 #X obj 6 93 cnv 15 160 150 empty empty Visualization 20 12 0 10 -233017
 -66577 0;
-#N canvas 608 568 1295 459 speakers 0;
+#N canvas 394 423 1295 459 speakers 0;
 #X obj 51 16 inlet;
 #X obj 51 117 until;
 #X obj 51 139 f;
@@ -633,40 +640,6 @@ setParam mul 5;
 #X restore 1078 -67 pd reporters;
 #X msg 6 -283 okta;
 #X obj 1076 -132 r toSpin;
-#N canvas 977 517 911 547 spatosc 0;
-#X obj 53 321 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 68 91 createSource mySound;
-#X msg 32 56 createListener ear;
-#X obj 560 141 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
-black red;
-#X obj 560 50 thisdir;
-#X obj 560 72 makefilename %s/snd;
-#X obj 562 30 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 560 94 location \$1;
-#X floatatom 447 100 5 0 0 0 - - -;
-#X msg 447 121 seek \$1;
-#X msg 216 35 clearScene;
-#X msg 98 266 debug;
-#X obj 54 301 spatosc BasicTranslator osc.udp://localhost:18033;
-#X msg 98 245 setNodeIntProperty mySound play 1;
-#X msg 114 134 setMediaURI mySound plugin://SimpleSin;
-#X connect 1 0 12 0;
-#X connect 2 0 12 0;
-#X connect 3 0 14 0;
-#X connect 4 0 5 0;
-#X connect 5 0 7 0;
-#X connect 6 0 4 0;
-#X connect 7 0 3 0;
-#X connect 8 0 9 0;
-#X connect 9 0 3 0;
-#X connect 10 0 12 0;
-#X connect 11 0 12 0;
-#X connect 12 0 0 0;
-#X connect 13 0 12 0;
-#X connect 14 0 12 0;
-#X restore 1069 -183 pd spatosc way;
 #N canvas 391 80 1009 665 single_loop 0;
 #X msg 57 67 createNode listener0 Listener;
 #X obj 550 131 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
@@ -739,12 +712,11 @@ file://\$2 \, /snd\$1 setParam play 1 \, /snd\$1 setParam loop 1;
 #X obj 1103 164 s \$1-nodeType;
 #X obj 1036 142 unpack s s;
 #X obj 155 134 r \$0-popup-set;
-#X obj 101 130 popup 150 20 #e0e0e0 CHOOSE constrained0 constrained1
-constrained2 constrained3 constrained4;
+#X obj 101 130 popup 150 20 #e0e0e0 CHOOSE;
 #X obj 854 96 r \$0-from-SPIN;
 #X obj 101 417 prepend;
 #X obj 248 360 sprintf /%s;
-#X obj 104 153 grid grid1 144 0 1 144 0 1 0 0.001 0.001 10 10 190 228
+#X obj 104 153 grid grid1 144 0 1 144 0 1 0 0.001 0.001 10 10 240 108
 ;
 #X obj 101 311 expr ($f1*24)-12;
 #X obj 205 310 expr ($f1*24)-12;
@@ -759,24 +731,24 @@ constrained2 constrained3 constrained4;
 #X obj 625 376 list append;
 #X floatatom 252 190 5 0 0 1 time_(sec) - -;
 #X obj 622 409 list append LinearMotion;
-#X obj 253 154 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+#X obj 253 154 vradio 15 1 1 2 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
 #X obj 287 285 + 1;
 #X text 278 152 Manual;
-#X text 270 169 comment;
 #X obj 398 457 prepend set;
 #X msg 398 479 /constrained0 translateTo -7.67867 8.16187 0 9 LinearMotion
 ;
 #X obj 854 116 popupCtrl-nodeList \$0 ConstraintsNode \$4 \$5 \$6 \$7
 \$8;
+#X text 275 169 physics;
 #X connect 0 0 7 0;
-#X connect 3 0 31 1;
+#X connect 3 0 30 1;
 #X connect 5 1 4 0;
 #X connect 6 0 7 1;
 #X connect 7 1 2 0;
 #X connect 7 1 10 0;
 #X connect 7 1 19 0;
-#X connect 8 0 31 0;
+#X connect 8 0 30 0;
 #X connect 9 0 16 0;
 #X connect 10 0 9 1;
 #X connect 11 0 12 0;
@@ -788,7 +760,7 @@ constrained2 constrained3 constrained4;
 #X connect 17 0 15 0;
 #X connect 17 1 21 0;
 #X connect 18 0 20 0;
-#X connect 18 0 29 0;
+#X connect 18 0 28 0;
 #X connect 19 0 18 1;
 #X connect 21 0 22 0;
 #X connect 22 0 24 0;
@@ -796,9 +768,9 @@ constrained2 constrained3 constrained4;
 #X connect 24 0 18 0;
 #X connect 25 0 26 0;
 #X connect 26 0 17 0;
-#X connect 29 0 30 0;
-#X connect 31 0 1 0;
-#X connect 31 2 5 0;
+#X connect 28 0 29 0;
+#X connect 30 0 1 0;
+#X connect 30 2 5 0;
 #X coords 0 -1 1 1 250 200 1 100 100;
 #X restore 181 29 pd manual control;
 #N canvas 1071 122 770 594 trigger 0;
@@ -841,6 +813,7 @@ black red;
 #X connect 13 0 12 0;
 #X connect 17 0 1 0;
 #X connect 22 0 21 0;
+#X connect 23 0 6 0;
 #X connect 27 0 0 0;
 #X connect 28 0 4 0;
-#X connect 33 0 30 0;
+#X connect 32 0 29 0;

@@ -8,10 +8,16 @@
    - pdextended version 0.42.5 (not tested with any other version)
    - oktadb external (Geoffrey Jones)
      It's actually included in the package in source form
-   - gridflow library (http://gridflow.ca)
-     Very useful for the audio matrix, notably the [#many] object and translating matrices to lists etc.
    - rjlib (https://github.com/rjdj/rjlib)
    - xjimmies (http://code.sat.qc.ca/trac/pdsheefa)
+   - spinframework (htp://spinframework.com)
+   - pyo
+   - jack
+   - pyospat
+     - twisted
+     - txosc
+* Configuration
+  ~/.spinFramework/args
 * Components
 ** Play list
 ** Looping player

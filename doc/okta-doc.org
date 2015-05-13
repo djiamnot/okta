@@ -1,3 +1,23 @@
+#+EXPORT_TITLE: "OKTA software documentation"
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [letter]
+#+LATEX_HEADER: \oddsidemargin 0cm
+#+LATEX_HEADER: \evensidemargin 0cm
+#+LATEX_HEADER: \textwidth 15.5cm
+#+LATEX_HEADER: \topmargin -1cm
+#+LATEX_HEADER: \textheight 23cm
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhead{}
+#+LATEX_HEADER: \fancyhead[LE,RO]{Mois Multi}
+#+LATEX_HEADER: \fancyhead[RE,LO]{Totem Contemporain}
+#+LATEX_HEADER: \fancyfoot[CE,CO]{Michał Seta | 514.575.9243 | mis@artengine.ca}
+#+OPTIONS: num:t
+#+OPTIONS: toc:t
+#+OPTIONS: author:nil
+#+OPTIONS: timestamp:t date:t d:nil <:nil p:nil tags:nil
+#+LANGUAGE: fr
+\thispagestyle{fancy}
 #+TITLE: OKTA software documentation
 #+AUTHOR: Michal Seta
 #+EMAIL: mis@artengine.ca

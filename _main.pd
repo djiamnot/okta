@@ -1,4 +1,4 @@
-#N canvas 691 94 1197 852 10;
+#N canvas 687 102 1197 852 10;
 #X declare -path abs;
 #X declare -path rj;
 #X obj 6 -263 widget-spinConnect \$0;
@@ -14,7 +14,7 @@
 12 0 10 -233017 -66577 0;
 #X obj 26 -103 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 858 140 1009 665 audio_ctl+spin 0;
+#N canvas 848 160 1009 665 audio_ctl+spin 0;
 #X msg 57 67 createNode listener0 Listener;
 #X obj 550 131 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
 black red;
@@ -46,8 +46,6 @@ black red;
 #X msg 450 497 createNode constrained\$1 ConstraintsNode \, /constrained\$1
 setTarget box \, /constrained\$1 setConstraintMode 3 \, /constrained\$1
 setComputationMode 1 \,;
-#X obj 112 135 counter 5;
-#X msg 112 91 5;
 #X msg 162 369 /snd\$1 setParent constrained\$1 \, /snd\$1 setTranslation
 0 0 0;
 #X obj 108 282 t a a;
@@ -60,24 +58,26 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X obj 233 317 s \$0-to-SPIN;
 #X obj 450 546 s \$0-to-SPIN;
 #X obj 162 391 s \$0-to-SPIN;
-#X connect 0 0 31 0;
+#X obj 112 135 counter 8;
+#X msg 112 91 8;
+#X connect 0 0 29 0;
 #X connect 1 0 10 0;
 #X connect 1 0 8 1;
 #X connect 2 0 3 0;
 #X connect 3 0 5 0;
 #X connect 4 0 2 0;
 #X connect 5 0 1 0;
-#X connect 6 0 25 0;
+#X connect 6 0 33 0;
 #X connect 7 0 23 0;
 #X connect 7 1 14 0;
-#X connect 8 0 30 0;
+#X connect 8 0 28 0;
 #X connect 11 0 1 0;
 #X connect 12 0 13 0;
-#X connect 13 0 26 0;
+#X connect 13 0 34 0;
 #X connect 13 1 0 0;
 #X connect 13 2 4 0;
 #X connect 13 2 22 0;
-#X connect 14 0 32 0;
+#X connect 14 0 30 0;
 #X connect 15 0 17 0;
 #X connect 16 0 7 0;
 #X connect 16 1 19 0;
@@ -85,19 +85,19 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X connect 19 0 11 0;
 #X connect 20 0 13 0;
 #X connect 21 0 19 1;
-#X connect 22 0 25 2;
-#X connect 23 0 28 0;
+#X connect 22 0 33 2;
+#X connect 23 0 26 0;
 #X connect 23 1 24 0;
-#X connect 24 0 33 0;
-#X connect 25 0 16 0;
-#X connect 25 2 15 0;
-#X connect 26 0 6 0;
-#X connect 27 0 34 0;
-#X connect 28 0 8 0;
-#X connect 28 1 27 0;
-#X connect 29 0 31 0;
-#X connect 30 0 9 0;
-#X connect 30 0 31 0;
+#X connect 24 0 31 0;
+#X connect 25 0 32 0;
+#X connect 26 0 8 0;
+#X connect 26 1 25 0;
+#X connect 27 0 29 0;
+#X connect 28 0 9 0;
+#X connect 28 0 29 0;
+#X connect 33 0 16 0;
+#X connect 33 2 15 0;
+#X connect 34 0 6 0;
 #X restore 43 -103 pd audio_ctl+spin;
 #X obj 26 -131 del 2000;
 #X obj 26 -152 r __init;
@@ -251,7 +251,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X symbolatom 486 -317 10 0 0 0 - - -;
 #X obj 5 248 cnv 15 280 255 empty empty Show_control 20 12 0 10 -233017
 -66577 0;
-#N canvas 1168 109 714 629 physics 0;
+#N canvas 1166 113 714 629 physics 0;
 #X obj 264 104 until;
 #N canvas 571 157 450 300 velocities 0;
 #X obj 124 53 inlet;
@@ -401,7 +401,7 @@ setParam mul 5;
 #X restore 1078 -92 pd physics;
 #X obj 6 93 cnv 15 160 150 empty empty Visualization 20 12 0 10 -233017
 -66577 0;
-#N canvas 475 497 1427 472 speakers 1;
+#N canvas 471 505 1427 472 speakers 0;
 #X obj 51 16 inlet;
 #X obj 51 117 until;
 #X obj 51 139 f;
@@ -613,7 +613,7 @@ setParam mul 5;
 -66577 0;
 #X obj 1079 -39 bng 15 250 50 0 manual_trig empty trigger_random 17
 7 0 10 -262144 -1 -1;
-#N canvas 571 203 450 300 reporters 0;
+#N canvas 569 207 450 300 reporters 0;
 #X obj -170 16 LEDfromReporter \$0 0;
 #X obj -170 35 LEDfromReporter \$0 1;
 #X obj -170 56 LEDfromReporter \$0 2;
@@ -639,7 +639,7 @@ setParam mul 5;
 #X restore 1078 -67 pd reporters;
 #X msg 6 -283 okta;
 #X obj 1076 -132 r toSpin;
-#N canvas 385 92 1009 665 single_loop 0;
+#N canvas 383 96 1009 665 single_loop 0;
 #X msg 57 67 createNode listener0 Listener;
 #X obj 550 131 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
 black red;
@@ -703,7 +703,7 @@ file://\$2 \, /snd\$1 setParam play 1 \, /snd\$1 setParam loop 1;
 -1 -1;
 #X obj 29 -84 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 676 537 1243 542 manual 0;
+#N canvas 672 496 1243 542 manual 0;
 #X obj 171 69 r \$0-popup;
 #X obj 854 136 s \$0-popup;
 #X obj 367 147 s \$0-id;
@@ -712,11 +712,12 @@ file://\$2 \, /snd\$1 setParam play 1 \, /snd\$1 setParam loop 1;
 #X obj 1036 142 unpack s s;
 #X obj 276 49 r \$0-popup-set;
 #X obj 105 128 popup 150 20 #e0e0e0 CHOOSE constrained0 constrained1
-constrained2 constrained3 constrained4;
+constrained2 constrained3 constrained4 constrained5 constrained6 constrained7
+;
 #X obj 854 96 r \$0-from-SPIN;
 #X obj 101 417 prepend;
 #X obj 248 360 sprintf /%s;
-#X obj 104 153 grid grid1 144 0 1 144 0 1 0 0.001 0.001 10 10 229 104
+#X obj 104 153 grid grid1 144 0 1 144 0 1 0 0.001 0.001 10 10 299 186
 ;
 #X obj 101 311 expr ($f1*24)-12;
 #X obj 205 310 expr ($f1*24)-12;
@@ -736,7 +737,7 @@ constrained2 constrained3 constrained4;
 #X obj 287 285 + 1;
 #X text 278 152 Manual;
 #X obj 398 457 prepend set;
-#X msg 398 479 /constrained0 translateTo -7.0072 12 0 33 LinearMotion
+#X msg 398 479 /constrained0 translateTo -1.17387 7.65707 0 LinearMotion
 ;
 #X obj 854 116 popupCtrl-nodeList \$0 ConstraintsNode \$4 \$5 \$6 \$7
 \$8;
@@ -773,29 +774,37 @@ constrained2 constrained3 constrained4;
 #X connect 30 2 5 0;
 #X coords 0 -1 1 1 250 200 1 100 100;
 #X restore 181 29 pd manual control;
-#N canvas 648 262 770 594 trigger 0;
-#X obj 250 175 thisdir;
-#X msg 250 219 location \$1;
-#X obj 250 154 loadbang;
-#X obj 102 185 vradio 15 1 0 5 \$0-snd empty Sound$ 0 -8 0 10 -262144
+#N canvas 634 290 770 594 trigger 0;
+#X obj 414 87 thisdir;
+#X msg 414 131 location \$1;
+#X obj 414 66 loadbang;
+#X obj 104 176 vradio 15 1 0 8 \$0-snd empty Trigger 0 -8 0 10 -262144
 -1 -1 0;
-#X obj 213 448 pack f f s;
-#X obj 233 156 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 268 202 makefilename %s/snd;
-#X obj 202 388 r \$0-snd;
-#X obj 239 416 r \$0-loop;
-#X obj 204 509 s \$0-to-SPIN;
+#X obj 123 448 pack f f s;
+#X obj 397 68 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 416 108 makefilename %s/snd;
+#X obj 112 388 r \$0-snd;
+#X obj 149 416 r \$0-loop;
+#X obj 114 509 s \$0-to-SPIN;
 #X obj 102 142 tgl 15 0 \$0-loop empty loop? 17 7 0 10 -262144 -1 -1
 0 1;
-#X obj 333 420 t b a;
-#X msg 213 470 /snd\$1 setParam path \$3 \, /snd\$1 setParam play 1
+#X obj 148 312 t b a;
+#X msg 123 470 /snd\$1 setParam path \$3 \, /snd\$1 setParam play 1
 \, /snd\$1 setParam loop \$2 \, /snd\$1 setParam mul 0.2;
-#X obj 147 148 playlist all 250 150 {Helvetica 10 bold} #457782 yellow
+#X obj 148 148 playlist all 250 150 {Helvetica 10 bold} #457782 yellow
 black red;
 #X obj 143 543 p;
-#X obj 423 360 s nowPlaying;
-#X msg 363 323 label np:\$1;
+#X obj 269 326 s nowPlaying;
+#X msg 269 304 label np:\$1;
+#X text 119 173 0;
+#X text 120 189 1;
+#X text 120 206 2;
+#X text 120 220 3;
+#X text 121 234 4;
+#X text 121 248 5;
+#X text 121 264 6;
+#X text 121 278 7;
 #X connect 0 0 6 0;
 #X connect 1 0 13 0;
 #X connect 2 0 0 0;
@@ -814,7 +823,7 @@ black red;
 #X coords 0 -1 1 1 300 200 1 100 100;
 #X restore 435 29 pd trigger sounds;
 #X obj 1076 -113 s \$0-to-SPIN;
-#N canvas 1180 82 716 304 constants 0;
+#N canvas 1174 94 716 304 constants 0;
 #X obj 25 99 anyreg speakerB1 -10 7.5 0;
 #X obj 23 22 anyreg speakerA1 -2.5 12.5 0;
 #X obj 24 48 anyreg speakerA2 2.5 12.5 0;
@@ -840,8 +849,114 @@ black red;
 #X obj 455 127 anyreg speakerF1 -12.5 -12.5 0;
 #X obj 456 157 anyreg speakerF2 -7.5 -12.5 0;
 #X restore 887 -282 pd constants;
-#X obj 449 -52 cnv 15 250 20 empty nowPlaying np:20131029-16-17-21.wav
+#X obj 449 -52 cnv 15 250 20 empty nowPlaying np:20131029-14-07-32.wav
 20 12 0 14 -162280 -228856 0;
+#N canvas 703 238 1185 662 okta1 0;
+#X obj 129 26 inlet;
+#X obj 129 48 t b b;
+#X obj 213 49 r count_media;
+#X obj 156 70 random 167;
+#X obj 211 466 list-nth;
+#X obj 271 466 random 24;
+#X obj 118 509 anyreg speakerA1;
+#X obj 101 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 55 614 s \$0-to-SPIN;
+#X msg 211 405 speakerA1 speakerA2 speakerA3 speakerB1 speakerB2 speakerB3
+speakerB4 speakerC1 speakerC2 speakerC3 speakerC4 speakerC5 speakerC6
+speakerD1 speakerD2 speakerD3 speakerD4 speakerD5 speakerE1 speakerE2
+speakerE3 speakerE4 speakerF1 speakerF2;
+#X obj 211 488 symbol;
+#X obj 361 56 i 40000;
+#X obj 361 36 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 98 181 t b b b b b b b b;
+#X obj 361 81 t f f f f f f f f;
+#X obj 99 206 delay;
+#X obj 109 216 delay;
+#X obj 119 226 delay;
+#X obj 129 236 delay;
+#X obj 142 250 delay;
+#X obj 161 259 delay;
+#X obj 177 272 delay;
+#X obj 55 531 list append;
+#X obj 55 553 list trim;
+#X obj 308 622 p;
+#X obj 88 390 t a b b b;
+#X msg 55 592 /constrained\$1 setTranslation \$2 \$3 \$4;
+#X obj 164 322 t b;
+#X msg 163 343 clear;
+#X obj 89 368 urn 8;
+#X obj 67 122 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 395 25 5 0 0 0 - - -;
+#X obj 446 208 * 2;
+#X obj 426 189 * 3;
+#X obj 406 167 * 4;
+#X obj 388 147 * 5;
+#X obj 363 129 * 6;
+#X obj 348 109 * 7;
+#X obj 203 279 delay;
+#X obj 467 227 * 1;
+#X connect 0 0 1 0;
+#X connect 1 0 13 0;
+#X connect 1 1 3 0;
+#X connect 2 0 3 1;
+#X connect 4 0 10 0;
+#X connect 5 0 4 1;
+#X connect 6 0 22 1;
+#X connect 7 0 1 0;
+#X connect 9 0 4 0;
+#X connect 10 0 6 1;
+#X connect 11 0 14 0;
+#X connect 12 0 11 0;
+#X connect 13 0 15 0;
+#X connect 13 1 16 0;
+#X connect 13 2 17 0;
+#X connect 13 3 18 0;
+#X connect 13 4 19 0;
+#X connect 13 5 20 0;
+#X connect 13 6 21 0;
+#X connect 13 7 38 0;
+#X connect 14 0 37 0;
+#X connect 14 1 36 0;
+#X connect 14 2 35 0;
+#X connect 14 3 34 0;
+#X connect 14 4 33 0;
+#X connect 14 5 32 0;
+#X connect 14 6 39 0;
+#X connect 15 0 29 0;
+#X connect 16 0 29 0;
+#X connect 17 0 29 0;
+#X connect 18 0 29 0;
+#X connect 19 0 29 0;
+#X connect 20 0 29 0;
+#X connect 21 0 29 0;
+#X connect 22 0 23 0;
+#X connect 23 0 26 0;
+#X connect 25 0 22 0;
+#X connect 25 1 6 0;
+#X connect 25 2 9 0;
+#X connect 25 3 5 0;
+#X connect 26 0 8 0;
+#X connect 26 0 24 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 29 0 25 0;
+#X connect 29 1 27 0;
+#X connect 30 0 13 0;
+#X connect 31 0 11 1;
+#X connect 32 0 20 1;
+#X connect 33 0 19 1;
+#X connect 34 0 18 1;
+#X connect 35 0 17 1;
+#X connect 36 0 16 1;
+#X connect 37 0 15 1;
+#X connect 38 0 29 0;
+#X connect 39 0 21 1;
+#X restore 20 286 pd okta1;
+#X obj 19 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X connect 2 0 26 0;
 #X connect 3 0 5 0;
 #X connect 9 0 10 0;
@@ -852,3 +967,4 @@ black red;
 #X connect 26 0 0 0;
 #X connect 27 0 34 0;
 #X connect 31 0 28 0;
+#X connect 38 0 37 0;

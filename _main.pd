@@ -633,40 +633,6 @@ setParam mul 5;
 #X restore 1078 -67 pd reporters;
 #X msg 6 -283 okta;
 #X obj 1076 -132 r toSpin;
-#N canvas 977 517 911 547 spatosc 0;
-#X obj 53 321 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 68 91 createSource mySound;
-#X msg 32 56 createListener ear;
-#X obj 560 141 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
-black red;
-#X obj 560 50 thisdir;
-#X obj 560 72 makefilename %s/snd;
-#X obj 562 30 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 560 94 location \$1;
-#X floatatom 447 100 5 0 0 0 - - -;
-#X msg 447 121 seek \$1;
-#X msg 216 35 clearScene;
-#X msg 98 266 debug;
-#X obj 54 301 spatosc BasicTranslator osc.udp://localhost:18033;
-#X msg 98 245 setNodeIntProperty mySound play 1;
-#X msg 114 134 setMediaURI mySound plugin://SimpleSin;
-#X connect 1 0 12 0;
-#X connect 2 0 12 0;
-#X connect 3 0 14 0;
-#X connect 4 0 5 0;
-#X connect 5 0 7 0;
-#X connect 6 0 4 0;
-#X connect 7 0 3 0;
-#X connect 8 0 9 0;
-#X connect 9 0 3 0;
-#X connect 10 0 12 0;
-#X connect 11 0 12 0;
-#X connect 12 0 0 0;
-#X connect 13 0 12 0;
-#X connect 14 0 12 0;
-#X restore 1069 -183 pd spatosc way;
 #N canvas 391 80 1009 665 single_loop 0;
 #X msg 57 67 createNode listener0 Listener;
 #X obj 550 131 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
@@ -744,7 +710,7 @@ constrained2 constrained3 constrained4;
 #X obj 854 96 r \$0-from-SPIN;
 #X obj 101 417 prepend;
 #X obj 248 360 sprintf /%s;
-#X obj 104 153 grid grid1 144 0 1 144 0 1 0 0.001 0.001 10 10 190 228
+#X obj 104 153 grid grid1 144 0 1 144 0 1 0 0.001 0.001 10 10 240 108
 ;
 #X obj 101 311 expr ($f1*24)-12;
 #X obj 205 310 expr ($f1*24)-12;
@@ -759,24 +725,24 @@ constrained2 constrained3 constrained4;
 #X obj 625 376 list append;
 #X floatatom 252 190 5 0 0 1 time_(sec) - -;
 #X obj 622 409 list append LinearMotion;
-#X obj 253 154 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+#X obj 253 154 vradio 15 1 1 2 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
 #X obj 287 285 + 1;
 #X text 278 152 Manual;
-#X text 270 169 comment;
 #X obj 398 457 prepend set;
 #X msg 398 479 /constrained0 translateTo -7.67867 8.16187 0 9 LinearMotion
 ;
 #X obj 854 116 popupCtrl-nodeList \$0 ConstraintsNode \$4 \$5 \$6 \$7
 \$8;
+#X text 275 169 physics;
 #X connect 0 0 7 0;
-#X connect 3 0 31 1;
+#X connect 3 0 30 1;
 #X connect 5 1 4 0;
 #X connect 6 0 7 1;
 #X connect 7 1 2 0;
 #X connect 7 1 10 0;
 #X connect 7 1 19 0;
-#X connect 8 0 31 0;
+#X connect 8 0 30 0;
 #X connect 9 0 16 0;
 #X connect 10 0 9 1;
 #X connect 11 0 12 0;
@@ -788,7 +754,7 @@ constrained2 constrained3 constrained4;
 #X connect 17 0 15 0;
 #X connect 17 1 21 0;
 #X connect 18 0 20 0;
-#X connect 18 0 29 0;
+#X connect 18 0 28 0;
 #X connect 19 0 18 1;
 #X connect 21 0 22 0;
 #X connect 22 0 24 0;
@@ -796,9 +762,9 @@ constrained2 constrained3 constrained4;
 #X connect 24 0 18 0;
 #X connect 25 0 26 0;
 #X connect 26 0 17 0;
-#X connect 29 0 30 0;
-#X connect 31 0 1 0;
-#X connect 31 2 5 0;
+#X connect 28 0 29 0;
+#X connect 30 0 1 0;
+#X connect 30 2 5 0;
 #X coords 0 -1 1 1 250 200 1 100 100;
 #X restore 181 29 pd manual control;
 #N canvas 1071 122 770 594 trigger 0;
@@ -843,4 +809,4 @@ black red;
 #X connect 22 0 21 0;
 #X connect 27 0 0 0;
 #X connect 28 0 4 0;
-#X connect 33 0 30 0;
+#X connect 32 0 29 0;

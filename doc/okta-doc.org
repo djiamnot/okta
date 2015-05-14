@@ -50,3 +50,11 @@ OKTA software is a sound file player with multichannels spacialisation capabilit
    
 * Presets
 * Hacking
+* Implementation details
+** OKTA behaviors
+   This chart (Figue [[fig:Behaviors]]) illustrates the types of movements and beahvaiors:
+   #+CAPTION: OKTA behaviors
+   #+NAME:   fig:Behaviors
+   [[./img/Okta_Behaviors.png]]
+* Questions to Steve and Doug					   :noexport:
+- what is "cube bound" and "not cube bound"

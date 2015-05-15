@@ -1643,6 +1643,7 @@ setVelocity \$5 \$6 0;
 #X obj 869 86 s trigger;
 #X msg 615 339 /snd\$1 setParam mul 4;
 #X floatatom 614 308 5 0 0 0 - - -;
+#X connect 0 0 3 0;
 #X connect 2 0 26 0;
 #X connect 3 0 5 0;
 #X connect 9 0 10 0;

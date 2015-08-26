@@ -1,11 +1,11 @@
-#N canvas 557 31 1197 852 10;
+#N canvas 396 122 1197 852 10;
 #X declare -path abs;
 #X declare -path rj;
 #X obj 6 -244 widget-spinConnect \$0;
 #X obj 486 -298 widget-nodeEditor \$0;
 #X obj 6 -303 loadbang;
 #X obj 363 -232 nbx 5 14 -1e+37 1e+37 0 0 empty count_media num_of_soundfiles
-0 -8 0 10 -4034 -1 -1 50 256;
+0 -8 0 10 -4034 -1 -1 0 256;
 #X obj 6 -175 s __init;
 #X obj 1027 -284 declare -path abs;
 #X obj 1027 -265 declare -path rj;
@@ -13,7 +13,7 @@
 12 0 10 -233017 -66577 0;
 #X obj 26 -84 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 848 160 1009 665 audio_ctl+spin 0;
+#N canvas 846 164 1009 665 audio_ctl+spin 0;
 #X msg 57 67 createNode listener0 Listener;
 #X obj 550 131 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
 black red;
@@ -102,7 +102,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X obj 26 -133 r __init;
 #X obj 6 8 cnv 15 160 100 empty empty SoundNodes_controllers 20 12
 0 10 -233017 -66577 0;
-#N canvas 676 535 738 487 instrument_controls 0;
+#N canvas 672 543 738 487 instrument_controls 0;
 #X obj 109 -2 sel 0 1 2 3 4;
 #X floatatom 96 195 5 0 0 0 - - -;
 #X obj 97 151 r cluster;
@@ -140,16 +140,16 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 -1;
 #X msg 410 368 /snd25 setParam play 1;
 #X obj 306 353 s \$0-to-SPIN;
+#X obj 108 78 sfplayer_control \$0 3;
 #X obj 108 38 sfplayer_control \$0 1;
 #X obj 109 18 sfplayer_control \$0 0;
 #X obj 107 100 sfplayer_control \$0 4;
 #X obj 106 57 sfplayer_control \$0 2;
-#X obj 108 78 sfplayer_control \$0 3;
-#X connect 0 0 30 0;
-#X connect 0 1 29 0;
-#X connect 0 2 32 0;
-#X connect 0 3 33 0;
-#X connect 0 4 31 0;
+#X connect 0 0 31 0;
+#X connect 0 1 30 0;
+#X connect 0 2 33 0;
+#X connect 0 3 29 0;
+#X connect 0 4 32 0;
 #X connect 1 0 4 0;
 #X connect 2 0 12 0;
 #X connect 2 0 15 0;
@@ -174,14 +174,14 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X connect 12 0 13 0;
 #X connect 15 0 14 0;
 #X connect 16 0 6 0;
-#X connect 22 0 30 0;
-#X connect 23 0 29 0;
-#X connect 24 0 32 0;
-#X connect 25 0 33 0;
-#X connect 26 0 31 0;
+#X connect 22 0 31 0;
+#X connect 23 0 30 0;
+#X connect 24 0 33 0;
+#X connect 25 0 29 0;
+#X connect 26 0 32 0;
 #X connect 27 0 28 0;
 #X restore 16 76 pd instrument_controls;
-#N canvas 23 614 450 300 base_conf 0;
+#N canvas 21 618 450 300 base_conf 0;
 #X obj 34 207 shell;
 #X obj 34 148 bng 15 250 50 0 empty __init init_media_count 17 7 0
 10 -262144 -1 -1;
@@ -211,7 +211,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X obj 395 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 405 104 prepend set;
-#X msg 405 126 okta.local;
+#X msg 405 126 luoda;
 #X obj 420 44 loadbang;
 #X obj 80 339 s \$0-to-SPIN;
 #X connect 0 0 9 0;
@@ -250,7 +250,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X symbolatom 486 -317 10 0 0 0 - - -;
 #X obj 5 267 cnv 15 280 255 empty empty Show_control 20 12 0 10 -233017
 -66577 0;
-#N canvas 1166 113 714 629 physics 0;
+#N canvas 1164 117 714 629 physics 0;
 #X obj 264 104 until;
 #N canvas 571 157 450 300 velocities 0;
 #X obj 124 53 inlet;
@@ -608,7 +608,7 @@ setParam mul 5;
 -1 -1;
 #X obj 105 -193 bng 15 250 50 0 empty empty INIT 17 7 0 10 -260097
 -258113 -258113;
-#X obj 171 -39 cnv 15 570 300 empty empty Manual_ctrl 20 12 0 10 -233017
+#X obj 172 -40 cnv 15 570 300 empty empty Manual_ctrl 20 12 0 10 -233017
 -66577 0;
 #X obj 1079 -39 bng 15 250 50 0 manual_trig empty trigger_random 17
 7 0 10 -262144 -1 -1;
@@ -710,9 +710,7 @@ file://\$2 \, /snd\$1 setParam play 1 \, /snd\$1 setParam loop 1;
 #X obj 1103 164 s \$1-nodeType;
 #X obj 1036 142 unpack s s;
 #X obj 276 49 r \$0-popup-set;
-#X obj 105 128 popup 150 20 #e0e0e0 CHOOSE constrained0 constrained1
-constrained2 constrained3 constrained4 constrained5 constrained6 constrained7
-;
+#X obj 105 128 popup 150 20 #e0e0e0 CHOOSE;
 #X obj 854 96 r \$0-from-SPIN;
 #X obj 101 417 prepend;
 #X obj 248 360 sprintf /%s;
@@ -775,12 +773,12 @@ constrained2 constrained3 constrained4 constrained5 constrained6 constrained7
 #X connect 32 0 31 2;
 #X coords 0 -1 1 1 250 200 1 100 100;
 #X restore 181 48 pd manual control;
-#N canvas 0 323 770 594 trigger 0;
+#N canvas 907 211 900 576 trigger 0;
 #X obj 414 87 thisdir;
 #X msg 414 131 location \$1;
 #X obj 414 66 loadbang;
 #X obj 104 176 vradio 15 1 0 8 \$0-snd \$0-snd-set Trigger 0 -8 0 10
--262144 -1 -1 4;
+-262144 -1 -1 0;
 #X obj 342 130 bng 15 250 50 0 empty empty refresh 17 7 0 10 -262144
 -1 -1;
 #X obj 416 108 makefilename %s/snd;
@@ -807,8 +805,12 @@ black red;
 #X msg 148 75 seek \$1;
 #X obj 148 55 r soundfile;
 #X obj 123 448 pack f 0 s;
-#X msg 123 470 /snd\$1 setParam path \$3 \, /snd\$1 setParam play 1
+#X msg 327 382 /snd\$1 setParam path \$3 \, /snd\$1 setParam play 1
 \, /snd\$1 setParam loop \$2 \, /snd\$1 setParam mul 4;
+#X msg 123 470 /snd\$1 setParam path \$3 \, /snd\$1 setParam play 1
+\, /snd\$1 setParam loop \$2 \, /snd\$1 setParam mul 1;
+#X text 466 485 <-- mul param is for vlolume scaling. Rolled down to
+1;
 #X connect 0 0 5 0;
 #X connect 1 0 11 0;
 #X connect 2 0 0 0;
@@ -824,13 +826,13 @@ black red;
 #X connect 23 0 3 0;
 #X connect 24 0 11 0;
 #X connect 25 0 24 0;
-#X connect 26 0 27 0;
-#X connect 27 0 8 0;
-#X connect 27 0 12 0;
+#X connect 26 0 28 0;
+#X connect 28 0 8 0;
+#X connect 28 0 12 0;
 #X coords 0 -1 1 1 300 200 1 100 100;
 #X restore 435 48 pd trigger sounds;
 #X obj 1076 -113 s \$0-to-SPIN;
-#N canvas 1174 94 716 304 constants 0;
+#N canvas 1172 98 716 304 constants 0;
 #X obj 25 99 anyreg speakerB1 -10 7.5 0;
 #X obj 23 22 anyreg speakerA1 -2.5 12.5 0;
 #X obj 24 48 anyreg speakerA2 2.5 12.5 0;
@@ -856,9 +858,9 @@ black red;
 #X obj 455 127 anyreg speakerF1 -12.5 -12.5 0;
 #X obj 456 157 anyreg speakerF2 -7.5 -12.5 0;
 #X restore 887 -282 pd constants;
-#X obj 449 -52 cnv 15 100 60 empty nowPlaying np:03_DM_PunchedLoop_4.wav
+#X obj 444 -33 cnv 15 100 60 empty nowPlaying np:03_DM_PunchedLoop_4.wav
 20 12 0 14 -233017 -66577 0;
-#N canvas 1 90 701 834 okta1 0;
+#N canvas 1 98 701 834 okta1 0;
 #X obj 129 26 inlet;
 #X obj 129 48 t b b;
 #X obj 213 49 r count_media;
@@ -1642,9 +1644,7 @@ setVelocity \$5 \$6 0;
 #X obj 895 300 s stopDelays;
 #X floatatom 869 65 5 0 0 0 - - -;
 #X obj 869 86 s trigger;
-#X msg 615 339 /snd\$1 setParam mul 4;
-#X floatatom 614 308 5 0 0 0 - - -;
-#X obj 335 333 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 335 333 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 335 355 metro 300000;
 #X obj 335 377 random 5;
@@ -1765,7 +1765,7 @@ setVelocity \$5 \$6 0;
 #X restore 124 338 pd okta7;
 #X obj 123 360 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 110 127 1161 865 okta8 0;
+#N canvas 108 131 1161 865 okta8 0;
 #X obj 139 36 inlet;
 #X obj 139 58 t b b;
 #X obj 223 59 r count_media;
@@ -1889,8 +1889,13 @@ setVelocity \$5 \$6 0;
 #X msg 335 309 1;
 #X obj 6 -197 sel okta;
 #X obj 6 -283 del 1000;
-#X connect 0 0 77 0;
-#X connect 2 0 78 0;
+#X obj 627 297 vsl 15 128 0 2 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X msg 627 432 /snd* setParam mul \$1;
+#X text 447 22 v-- volume set in trigger patcher;
+#X text 569 273 set volume of all playing sounds;
+#X connect 0 0 75 0;
+#X connect 2 0 76 0;
 #X connect 8 0 9 0;
 #X connect 11 0 10 0;
 #X connect 15 0 1 0;
@@ -1914,19 +1919,19 @@ setVelocity \$5 \$6 0;
 #X connect 53 0 54 0;
 #X connect 55 0 56 0;
 #X connect 57 0 58 0;
-#X connect 59 0 54 0;
-#X connect 60 0 59 0;
-#X connect 61 0 62 0;
+#X connect 59 0 60 0;
+#X connect 60 0 61 0;
+#X connect 61 0 66 0;
 #X connect 62 0 63 0;
-#X connect 63 0 68 0;
 #X connect 64 0 65 0;
 #X connect 66 0 67 0;
-#X connect 68 0 69 0;
-#X connect 68 1 70 0;
-#X connect 68 2 71 0;
-#X connect 68 3 72 0;
-#X connect 68 4 73 0;
-#X connect 75 0 76 0;
-#X connect 76 0 61 0;
-#X connect 77 0 4 0;
-#X connect 78 0 25 0;
+#X connect 66 1 68 0;
+#X connect 66 2 69 0;
+#X connect 66 3 70 0;
+#X connect 66 4 71 0;
+#X connect 73 0 74 0;
+#X connect 74 0 59 0;
+#X connect 75 0 4 0;
+#X connect 76 0 25 0;
+#X connect 77 0 78 0;
+#X connect 78 0 54 0;

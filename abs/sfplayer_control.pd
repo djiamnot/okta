@@ -1,6 +1,6 @@
-#N canvas 247 336 976 679 10;
+#N canvas 467 396 976 679 10;
 #X obj 46 -106 inlet;
-#N canvas 571 101 450 300 randombits 0;
+#N canvas 567 109 450 300 randombits 1;
 #X obj 114 35 inlet;
 #X obj 114 57 t f b b b;
 #X obj 114 149 pack f f f f;

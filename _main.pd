@@ -1,11 +1,11 @@
-#N canvas 396 122 1197 852 10;
+#N canvas 693 121 1197 852 10;
 #X declare -path abs;
 #X declare -path rj;
 #X obj 6 -244 widget-spinConnect \$0;
 #X obj 486 -298 widget-nodeEditor \$0;
 #X obj 6 -303 loadbang;
 #X obj 363 -232 nbx 5 14 -1e+37 1e+37 0 0 empty count_media num_of_soundfiles
-0 -8 0 10 -4034 -1 -1 0 256;
+0 -8 0 10 -4034 -1 -1 50 256;
 #X obj 6 -175 s __init;
 #X obj 1027 -284 declare -path abs;
 #X obj 1027 -265 declare -path rj;
@@ -710,7 +710,9 @@ file://\$2 \, /snd\$1 setParam play 1 \, /snd\$1 setParam loop 1;
 #X obj 1103 164 s \$1-nodeType;
 #X obj 1036 142 unpack s s;
 #X obj 276 49 r \$0-popup-set;
-#X obj 105 128 popup 150 20 #e0e0e0 CHOOSE;
+#X obj 105 128 popup 150 20 #e0e0e0 CHOOSE constrained0 constrained1
+constrained2 constrained3 constrained4 constrained5 constrained6 constrained7
+;
 #X obj 854 96 r \$0-from-SPIN;
 #X obj 101 417 prepend;
 #X obj 248 360 sprintf /%s;
@@ -778,7 +780,7 @@ file://\$2 \, /snd\$1 setParam play 1 \, /snd\$1 setParam loop 1;
 #X msg 414 131 location \$1;
 #X obj 414 66 loadbang;
 #X obj 104 176 vradio 15 1 0 8 \$0-snd \$0-snd-set Trigger 0 -8 0 10
--262144 -1 -1 0;
+-262144 -1 -1 4;
 #X obj 342 130 bng 15 250 50 0 empty empty refresh 17 7 0 10 -262144
 -1 -1;
 #X obj 416 108 makefilename %s/snd;
@@ -858,7 +860,7 @@ black red;
 #X obj 455 127 anyreg speakerF1 -12.5 -12.5 0;
 #X obj 456 157 anyreg speakerF2 -7.5 -12.5 0;
 #X restore 887 -282 pd constants;
-#X obj 444 -33 cnv 15 100 60 empty nowPlaying np:03_DM_PunchedLoop_4.wav
+#X obj 444 -33 cnv 15 100 60 empty nowPlaying np:20131029-16-36-49.wav
 20 12 0 14 -233017 -66577 0;
 #N canvas 1 98 701 834 okta1 0;
 #X obj 129 26 inlet;
@@ -1391,7 +1393,7 @@ setVelocity \$5 \$6 0;
 #X restore 20 423 pd okta4;
 #X obj 19 445 bng 15 250 50 0 empty trigOkta5 empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 108 131 1161 865 okta5 0;
+#N canvas 106 135 1161 865 okta5 0;
 #X obj 139 36 inlet;
 #X obj 139 58 t b b;
 #X obj 223 59 r count_media;
@@ -1518,7 +1520,7 @@ setVelocity \$5 \$6 0;
 #X restore 20 463 pd okta5;
 #X obj 123 280 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 110 127 1161 865 okta6 0;
+#N canvas 108 131 1161 865 okta6 0;
 #X obj 139 36 inlet;
 #X obj 139 58 t b b;
 #X obj 223 59 r count_media;
@@ -1644,7 +1646,7 @@ setVelocity \$5 \$6 0;
 #X obj 895 300 s stopDelays;
 #X floatatom 869 65 5 0 0 0 - - -;
 #X obj 869 86 s trigger;
-#X obj 335 333 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 335 333 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 335 355 metro 300000;
 #X obj 335 377 random 5;
@@ -1894,6 +1896,19 @@ setVelocity \$5 \$6 0;
 #X msg 627 432 /snd* setParam mul \$1;
 #X text 447 22 v-- volume set in trigger patcher;
 #X text 569 273 set volume of all playing sounds;
+#N canvas 870 228 450 444 okta-readings 0;
+#X obj -1733 75 src/oktadb fieldsound.dyndns.info 7778;
+#X obj -1634 111 outlet;
+#X obj -1697 8 inlet;
+#X msg -1698 32 current;
+#X connect 0 1 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X restore 825 -11 pd okta-readings;
+#X obj 825 11 prepend set;
+#X msg 825 33;
+#X obj 825 -34 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 0 0 75 0;
 #X connect 2 0 76 0;
 #X connect 8 0 9 0;
@@ -1935,3 +1950,6 @@ setVelocity \$5 \$6 0;
 #X connect 76 0 25 0;
 #X connect 77 0 78 0;
 #X connect 78 0 54 0;
+#X connect 81 0 82 0;
+#X connect 82 0 83 0;
+#X connect 84 0 81 0;

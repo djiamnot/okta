@@ -1,4 +1,4 @@
-#N canvas 693 121 1197 852 10;
+#N canvas 309 47 1197 852 10;
 #X declare -path abs;
 #X declare -path rj;
 #X obj 6 -244 widget-spinConnect \$0;
@@ -211,7 +211,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X obj 395 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 405 104 prepend set;
-#X msg 405 126 luoda;
+#X msg 405 126 okta.local;
 #X obj 420 44 loadbang;
 #X obj 80 339 s \$0-to-SPIN;
 #X connect 0 0 9 0;
@@ -780,7 +780,7 @@ constrained2 constrained3 constrained4 constrained5 constrained6 constrained7
 #X msg 414 131 location \$1;
 #X obj 414 66 loadbang;
 #X obj 104 176 vradio 15 1 0 8 \$0-snd \$0-snd-set Trigger 0 -8 0 10
--262144 -1 -1 4;
+-262144 -1 -1 5;
 #X obj 342 130 bng 15 250 50 0 empty empty refresh 17 7 0 10 -262144
 -1 -1;
 #X obj 416 108 makefilename %s/snd;
@@ -860,7 +860,7 @@ black red;
 #X obj 455 127 anyreg speakerF1 -12.5 -12.5 0;
 #X obj 456 157 anyreg speakerF2 -7.5 -12.5 0;
 #X restore 887 -282 pd constants;
-#X obj 444 -33 cnv 15 100 60 empty nowPlaying np:20131029-16-36-49.wav
+#X obj 444 -33 cnv 15 100 60 empty nowPlaying np:08_DM_Belles_Live.wav
 20 12 0 14 -233017 -66577 0;
 #N canvas 1 98 701 834 okta1 0;
 #X obj 129 26 inlet;
@@ -1649,7 +1649,6 @@ setVelocity \$5 \$6 0;
 #X obj 335 333 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 335 355 metro 300000;
-#X obj 335 377 random 5;
 #X obj 123 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #N canvas 110 127 1161 865 okta7 0;
@@ -1896,21 +1895,22 @@ setVelocity \$5 \$6 0;
 #X msg 627 432 /snd* setParam mul \$1;
 #X text 447 22 v-- volume set in trigger patcher;
 #X text 569 273 set volume of all playing sounds;
+#X obj 497 417 prepend set;
+#X msg 497 439 3;
+#X obj 493 358 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #N canvas 870 228 450 444 okta-readings 0;
-#X obj -1733 75 src/oktadb fieldsound.dyndns.info 7778;
 #X obj -1634 111 outlet;
 #X obj -1697 8 inlet;
 #X msg -1698 32 current;
-#X connect 0 1 1 0;
+#X obj -1733 75 src/oktadb localhost 7778;
+#X connect 1 0 2 0;
 #X connect 2 0 3 0;
-#X connect 3 0 0 0;
-#X restore 825 -11 pd okta-readings;
-#X obj 825 11 prepend set;
-#X msg 825 33;
-#X obj 825 -34 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X connect 0 0 75 0;
-#X connect 2 0 76 0;
+#X connect 3 1 0 0;
+#X restore 334 378 pd okta-readings;
+#X text 479 457 OKTA number;
+#X connect 0 0 74 0;
+#X connect 2 0 75 0;
 #X connect 8 0 9 0;
 #X connect 11 0 10 0;
 #X connect 15 0 1 0;
@@ -1935,21 +1935,21 @@ setVelocity \$5 \$6 0;
 #X connect 55 0 56 0;
 #X connect 57 0 58 0;
 #X connect 59 0 60 0;
-#X connect 60 0 61 0;
-#X connect 61 0 66 0;
-#X connect 62 0 63 0;
-#X connect 64 0 65 0;
-#X connect 66 0 67 0;
-#X connect 66 1 68 0;
-#X connect 66 2 69 0;
-#X connect 66 3 70 0;
-#X connect 66 4 71 0;
-#X connect 73 0 74 0;
-#X connect 74 0 59 0;
-#X connect 75 0 4 0;
-#X connect 76 0 25 0;
-#X connect 77 0 78 0;
-#X connect 78 0 54 0;
-#X connect 81 0 82 0;
+#X connect 60 0 83 0;
+#X connect 61 0 62 0;
+#X connect 63 0 64 0;
+#X connect 65 0 66 0;
+#X connect 65 1 67 0;
+#X connect 65 2 68 0;
+#X connect 65 3 69 0;
+#X connect 65 4 70 0;
+#X connect 72 0 73 0;
+#X connect 73 0 59 0;
+#X connect 74 0 4 0;
+#X connect 75 0 25 0;
+#X connect 76 0 77 0;
+#X connect 77 0 54 0;
+#X connect 80 0 81 0;
 #X connect 82 0 83 0;
-#X connect 84 0 81 0;
+#X connect 83 0 80 0;
+#X connect 83 0 65 0;

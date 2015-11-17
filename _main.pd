@@ -780,7 +780,7 @@ constrained2 constrained3 constrained4 constrained5 constrained6 constrained7
 #X msg 414 131 location \$1;
 #X obj 414 66 loadbang;
 #X obj 104 176 vradio 15 1 0 8 \$0-snd \$0-snd-set Trigger 0 -8 0 10
--262144 -1 -1 5;
+-262144 -1 -1 6;
 #X obj 342 130 bng 15 250 50 0 empty empty refresh 17 7 0 10 -262144
 -1 -1;
 #X obj 416 108 makefilename %s/snd;
@@ -860,7 +860,7 @@ black red;
 #X obj 455 127 anyreg speakerF1 -12.5 -12.5 0;
 #X obj 456 157 anyreg speakerF2 -7.5 -12.5 0;
 #X restore 887 -282 pd constants;
-#X obj 444 -33 cnv 15 100 60 empty nowPlaying np:08_DM_Belles_Live.wav
+#X obj 444 -33 cnv 15 100 60 empty nowPlaying np:SB_Okta_Master_03.wav
 20 12 0 14 -233017 -66577 0;
 #N canvas 1 98 701 834 okta1 0;
 #X obj 129 26 inlet;
@@ -1896,7 +1896,7 @@ setVelocity \$5 \$6 0;
 #X text 447 22 v-- volume set in trigger patcher;
 #X text 569 273 set volume of all playing sounds;
 #X obj 497 417 prepend set;
-#X msg 497 439 3;
+#X msg 497 439 4;
 #X obj 493 358 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #N canvas 870 228 450 444 okta-readings 0;
@@ -1943,6 +1943,7 @@ setVelocity \$5 \$6 0;
 #X connect 65 2 68 0;
 #X connect 65 3 69 0;
 #X connect 65 4 70 0;
+#X connect 65 5 70 0;
 #X connect 72 0 73 0;
 #X connect 73 0 59 0;
 #X connect 74 0 4 0;

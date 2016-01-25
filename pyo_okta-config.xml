@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pyospat_prefs>
+    <sr>48000</sr>
+    <nchnls>24</nchnls>
+    <audio>coreaudio</audio>
+    <buffersize>512</buffersize>
+    <duplex>1</duplex>
+    <jackname>pyo</jackname>
+</pyospat_prefs>

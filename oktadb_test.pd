@@ -1,4 +1,4 @@
-#N canvas 775 392 562 325 10;
+#N canvas 771 400 562 325 10;
 #X msg 208 48 current;
 #X floatatom 159 219 5 0 0 0 - - -;
 #X floatatom 234 218 5 0 0 0 - - -;
@@ -9,12 +9,13 @@
 #X obj 312 175 print message;
 #X floatatom 341 92 5 0 0 0 - - -;
 #X msg 236 80 state;
-#X obj 218 141 oktadb fieldsound.dyndns.info 7778;
+#X obj 218 141 src/oktadb fieldsound.dyndns.info 7778;
+#X obj 160 262 p;
 #X connect 0 0 10 0;
-#X connect 1 0 10 1;
 #X connect 8 0 10 2;
 #X connect 9 0 10 0;
 #X connect 10 0 1 0;
 #X connect 10 1 2 0;
+#X connect 10 1 11 0;
 #X connect 10 2 5 0;
 #X connect 10 3 7 0;

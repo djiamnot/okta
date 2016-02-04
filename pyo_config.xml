@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pyoscape_prefs>
-    <sr>44100</sr>
+    <sr>48000</sr>
     <nchnls>24</nchnls>
     <audio>jack</audio>
     <buffersize>1024</buffersize>

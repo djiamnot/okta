@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pyospat_prefs>
-    <sr>44100</sr>
+    <sr>48000</sr>
     <nchnls>24</nchnls>
     <audio>coreaudio</audio>
     <buffersize>512</buffersize>

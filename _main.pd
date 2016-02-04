@@ -1,4 +1,4 @@
-#N canvas 546 82 1197 852 10;
+#N canvas 542 90 1197 852 10;
 #X declare -path abs;
 #X declare -path rj;
 #X obj 6 -244 widget-spinConnect \$0;
@@ -13,7 +13,7 @@
 12 0 10 -233017 -66577 0;
 #X obj 26 -84 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 846 164 1009 665 audio_ctl+spin 0;
+#N canvas 844 168 1009 665 audio_ctl+spin 0;
 #X msg 57 67 createNode listener0 Listener;
 #X obj 550 131 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
 black red;
@@ -181,13 +181,13 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 1;
 #X connect 26 0 32 0;
 #X connect 27 0 28 0;
 #X restore 16 76 pd instrument_controls;
-#N canvas 21 618 450 300 base_conf 0;
+#N canvas 501 590 765 429 base_conf 0;
 #X obj 34 207 shell;
 #X obj 34 148 bng 15 250 50 0 empty __init init_media_count 17 7 0
 10 -262144 -1 -1;
 #X obj 34 167 thisdir;
 #X msg 34 187 ls -l \$1/snd | wc -l;
-#X obj 82 261 s count_media;
+#X obj 161 233 s count_media;
 #X msg 50 69 createNode box ShapeNode;
 #X obj 25 19 r __init;
 #X obj 25 41 t b b;
@@ -775,12 +775,12 @@ constrained2 constrained3 constrained4 constrained5 constrained6 constrained7
 #X connect 32 0 31 2;
 #X coords 0 -1 1 1 250 200 1 100 100;
 #X restore 181 48 pd manual control;
-#N canvas 897 231 900 576 trigger 0;
+#N canvas 973 503 900 576 trigger 1;
 #X obj 414 87 thisdir;
 #X msg 414 131 location \$1;
 #X obj 414 66 loadbang;
 #X obj 104 176 vradio 15 1 0 8 \$0-snd \$0-snd-set Trigger 0 -8 0 10
--262144 -1 -1 4;
+-262144 -1 -1 0;
 #X obj 342 130 bng 15 250 50 0 empty empty refresh 17 7 0 10 -262144
 -1 -1;
 #X obj 416 108 makefilename %s/snd;
@@ -860,7 +860,7 @@ black red;
 #X restore 887 -282 pd constants;
 #X obj 444 -33 cnv 15 100 60 empty nowPlaying np:20131029-17-20-37.wav
 20 12 0 14 -233017 -66577 0;
-#N canvas 1 106 701 834 okta1 0;
+#N canvas 1 110 701 834 okta1 1;
 #X obj 129 26 inlet;
 #X obj 129 48 t b b;
 #X obj 213 49 r count_media;
@@ -1569,7 +1569,7 @@ setVelocity \$5 \$6 0;
 #X obj 447 461 s trigOkta7;
 #X obj 436 482 s trigOkta8;
 #X obj 301 295 vradio 15 1 0 8 empty empty OKTA 0 -8 0 10 -262144 -1
--1 1;
+-1 0;
 #X text 287 293 0;
 #X text 288 309 1;
 #X text 288 326 2;

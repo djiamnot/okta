@@ -3,6 +3,6 @@
 
 add_command("/Applications/SPIN\ Server.app/Contents/MacOS/SPIN\ Server", identifier="spinserver", sleep_after=3)
 #add_command("/Applications/SPIN\ Viewer.app/Contents/MacOS/SPIN\ Viewer", identifier="spinviewer")
-add_command("/Applications/Pd-extended.app/Contents/MacOS/Pd-extended _main.pd",identifier="pd")
+add_command("/Applications/Pd-extended.app/Contents/MacOS/Pd-extended /Users/okta/src/okta/_main.pd",identifier="pd")
 add_command("pyospat -p 18033 -D 5 -L OKTA ", identifier="pyospat")
 add_command("/Users/okta/Desktop/BROADCAST\&CAPTURE.app/Contents/MacOS/Application\ Stub", identifier="video")

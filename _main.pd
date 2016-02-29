@@ -1,4 +1,4 @@
-#N canvas 523 307 979 505 10;
+#N canvas 309 181 1332 804 10;
 #X declare -path abs;
 #X declare -path rj;
 #X obj 6 30 widget-spinConnect \$0;
@@ -13,7 +13,7 @@
 12 0 10 -233017 -66577 0;
 #X obj 1018 680 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 728 336 1009 665 audio_ctl+spin 0;
+#N canvas 726 340 1009 665 audio_ctl+spin 1;
 #X msg 57 67 createNode listener0 Listener;
 #X obj 550 161 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
 black red;
@@ -258,7 +258,7 @@ file://\$2 \, /snd\$1 setParam loop 0 \, /snd\$1 setParam play 0;
 #X connect 13 0 12 0;
 #X restore 257 77 pd base_conf;
 #X symbolatom 592 -32 10 0 0 0 - - -;
-#X obj 709 239 cnv 15 280 255 empty empty Show_control 20 12 0 10 -233017
+#X obj 819 239 cnv 15 180 220 empty empty Show_control 20 12 0 10 -233017
 -66577 0;
 #N canvas 1162 121 714 629 physics 0;
 #X obj 264 104 until;
@@ -791,7 +791,7 @@ constrained2 constrained3 constrained4 constrained5 constrained6 constrained7
 #X msg 413 127 location \$1;
 #X obj 413 62 loadbang;
 #X obj 104 176 vradio 15 1 0 8 \$0-snd \$0-snd-set Trigger 0 -8 0 10
--262144 -1 -1 3;
+-262144 -1 -1 2;
 #X obj 354 111 bng 15 250 50 0 empty empty refresh 17 7 0 10 -262144
 -1 -1;
 #X obj 415 104 makefilename %s/snd;
@@ -916,9 +916,9 @@ black red;
 #X text 30 14 These are speaker placement coordinates (radians) stored
 as global variables;
 #X restore 404 -39 pd constants;
-#X obj 26 153 cnv 15 100 30 empty nowPlaying np:20131129-12-38-11.wav
+#X obj 26 153 cnv 15 100 30 empty nowPlaying np:20131129-11-07-06.wav
 20 12 0 14 -233017 -66577 0;
-#N canvas 632 203 1174 865 okta1 0;
+#N canvas 499 238 1174 865 okta1 1;
 #X obj 129 26 inlet;
 #X obj 129 48 t b b;
 #X obj 211 466 list-nth;
@@ -947,7 +947,7 @@ setVelocity 0 0 0;
 #X msg 129 100 0;
 #X obj 647 51 r sndFileLength_ms;
 #X obj 827 68 prepend set;
-#X msg 827 90 40124.1;
+#X msg 827 90 30650.3;
 #X obj 129 77 t b;
 #X obj 285 212 random 200;
 #X text 278 468 choose some speaker symbol;
@@ -1040,8 +1040,8 @@ the sound object number;
 #X connect 52 0 30 0;
 #X connect 53 0 47 0;
 #X connect 54 0 30 1;
-#X restore 724 277 pd okta1;
-#X obj 723 259 bng 15 250 50 0 empty trigOkta1 empty 17 7 0 10 -262144
+#X restore 834 277 pd okta1;
+#X obj 833 259 bng 15 250 50 0 empty trigOkta1 empty 17 7 0 10 -262144
 -1 -1;
 #N canvas 637 208 1161 865 okta2 0;
 #X obj 108 22 inlet;
@@ -1082,7 +1082,7 @@ setVelocity \$5 \$6 0;
 #X text 142 220 okta2;
 #X obj 276 147 r sndFileLength_ms;
 #X obj 456 164 prepend set;
-#X msg 456 186 40124.1;
+#X msg 456 186 30650.3;
 #X obj 276 244 spigot;
 #X obj 325 192 anyreg oktanumber;
 #X obj 276 169 t a b;
@@ -1138,10 +1138,10 @@ length;
 #X connect 37 0 40 0;
 #X connect 38 0 33 1;
 #X connect 41 0 21 0;
-#X restore 725 314 pd okta2;
-#X obj 724 296 bng 15 250 50 0 empty trigOkta2 empty 17 7 0 10 -262144
+#X restore 835 314 pd okta2;
+#X obj 834 296 bng 15 250 50 0 empty trigOkta2 empty 17 7 0 10 -262144
 -1 -1;
-#X obj 723 337 bng 15 250 50 0 empty trigOkta3 empty 17 7 0 10 -262144
+#X obj 833 337 bng 15 250 50 0 empty trigOkta3 empty 17 7 0 10 -262144
 -1 -1;
 #N canvas 598 168 1161 865 okta3 0;
 #X obj 118 32 inlet;
@@ -1179,7 +1179,7 @@ setVelocity \$5 \$6 0;
 #X obj 419 609 s soundfile;
 #X obj 286 157 r sndFileLength_ms;
 #X obj 466 174 prepend set;
-#X msg 466 196 40124.1;
+#X msg 466 196 30650.3;
 #X obj 286 248 spigot;
 #X obj 335 202 anyreg oktanumber;
 #X obj 286 179 t a b;
@@ -1236,8 +1236,8 @@ length;
 #X connect 37 0 21 0;
 #X connect 39 0 30 1;
 #X connect 40 0 26 0;
-#X restore 724 355 pd okta3;
-#X obj 723 377 bng 15 250 50 0 empty trigOkta4 empty 17 7 0 10 -262144
+#X restore 834 355 pd okta3;
+#X obj 833 377 bng 15 250 50 0 empty trigOkta4 empty 17 7 0 10 -262144
 -1 -1;
 #N canvas 90 167 1161 865 okta4 0;
 #X obj 128 42 inlet;
@@ -1275,7 +1275,7 @@ setVelocity \$5 \$6 0;
 #X obj 429 619 s soundfile;
 #X obj 296 167 r sndFileLength_ms;
 #X obj 476 184 prepend set;
-#X msg 476 206 40124.1;
+#X msg 476 206 30650.3;
 #X obj 296 258 spigot;
 #X obj 345 212 anyreg oktanumber;
 #X obj 296 189 t a b;
@@ -1332,10 +1332,10 @@ length;
 #X connect 37 0 21 0;
 #X connect 38 0 30 1;
 #X connect 40 0 26 0;
-#X restore 724 395 pd okta4;
-#X obj 723 417 bng 15 250 50 0 empty trigOkta5 empty 17 7 0 10 -262144
+#X restore 834 395 pd okta4;
+#X obj 833 417 bng 15 250 50 0 empty trigOkta5 empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 564 211 1161 865 okta5 1;
+#N canvas 564 211 1161 865 okta5 0;
 #X obj 138 52 inlet;
 #X obj 138 74 t b b;
 #X obj 222 75 r count_media;
@@ -1371,7 +1371,7 @@ setVelocity \$5 \$6 0;
 #X obj 439 629 s soundfile;
 #X obj 306 177 r sndFileLength_ms;
 #X obj 486 194 prepend set;
-#X msg 486 216 40124.1;
+#X msg 486 216 30650.3;
 #X obj 306 268 spigot;
 #X obj 355 222 anyreg oktanumber;
 #X obj 306 199 t a b;
@@ -1428,8 +1428,8 @@ length;
 #X connect 37 0 14 0;
 #X connect 39 0 30 1;
 #X connect 40 0 26 0;
-#X restore 724 435 pd okta5;
-#X obj 821 254 bng 15 250 50 0 empty trigOkta6 empty 17 7 0 10 -262144
+#X restore 834 435 pd okta5;
+#X obj 931 254 bng 15 250 50 0 empty trigOkta6 empty 17 7 0 10 -262144
 -1 -1;
 #X obj 719 508 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -1437,15 +1437,15 @@ length;
 #X obj 400 291 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 400 313 metro 300000;
-#X obj 821 294 bng 15 250 50 0 empty trigOkta7 empty 17 7 0 10 -262144
+#X obj 931 294 bng 15 250 50 0 empty trigOkta7 empty 17 7 0 10 -262144
 -1 -1;
-#X obj 823 334 bng 15 250 50 0 empty trigOkta8 empty 17 7 0 10 -262144
+#X obj 933 334 bng 15 250 50 0 empty trigOkta8 empty 17 7 0 10 -262144
 -1 -1;
-#X obj 401 458 s trigOkta1;
-#X obj 415 438 s trigOkta2;
-#X obj 430 418 s trigOkta3;
-#X obj 445 398 s trigOkta4;
-#X obj 460 378 s trigOkta5;
+#X obj 411 558 s trigOkta1;
+#X obj 425 538 s trigOkta2;
+#X obj 440 518 s trigOkta3;
+#X obj 455 498 s trigOkta4;
+#X obj 470 478 s trigOkta5;
 #X obj 400 215 r __init;
 #X msg 400 267 1;
 #X obj 6 77 sel okta;
@@ -1462,12 +1462,12 @@ length;
 #X connect 2 0 3 0;
 #X connect 3 1 0 0;
 #X restore 399 336 pd okta-readings;
-#X obj 400 357 sel 0 1 2 3 4 5 6 7;
-#X obj 522 399 s trigOkta6;
-#X obj 512 419 s trigOkta7;
-#X obj 501 440 s trigOkta8;
+#X obj 410 457 sel 0 1 2 3 4 5 6 7;
+#X obj 532 499 s trigOkta6;
+#X obj 522 519 s trigOkta7;
+#X obj 511 540 s trigOkta8;
 #X obj 366 253 vradio 15 1 0 8 empty empty OKTA 0 -8 0 10 -262144 -1
--1 3;
+-1 1;
 #X text 353 253 1;
 #X text 353 270 2;
 #X text 353 284 3;
@@ -1478,7 +1478,7 @@ length;
 #X msg 491 249 3000;
 #X msg 490 274 30000;
 #X msg 489 298 300000;
-#N canvas 25 150 1147 829 okta6 0;
+#N canvas 21 158 1147 829 okta6 0;
 #X obj 48 540 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 48 563 t b b;
@@ -1643,19 +1643,19 @@ setVelocity 0 \$4 0;
 #X connect 68 0 27 3;
 #X connect 69 0 45 1;
 #X connect 70 0 27 1;
-#X restore 821 273 pd okta6;
-#X obj 257 157 cnv 15 90 30 empty oktaNo okta:3 10 12 0 14 -233017
+#X restore 931 273 pd okta6;
+#X obj 257 157 cnv 15 90 30 empty oktaNo okta:1 10 12 0 14 -233017
 -258113 0;
-#X obj 534 340 makefilename %s;
-#X msg 534 363 \; oktaNo label okta:\$1;
+#X obj 131 555 makefilename %s;
+#X msg 131 578 \; oktaNo label okta:\$1;
 #X obj 469 222 r sndFileLength_ms;
 #N canvas 4 597 591 304 handleSoundLengths 0;
 #X obj 102 88 soundfiler;
 #X obj 103 110 / 44.1;
 #X obj 102 39 r toSoundfiler;
 #N canvas 0 0 450 300 (subpatch) 0;
-#X array currentAudio 1.76947e+06 float 2;
-#X coords 0 1 1.76947e+06 -1 200 140 1;
+#X array currentAudio 1.35168e+06 float 2;
+#X coords 0 1 1.35168e+06 -1 200 140 1;
 #X restore 354 59 graph;
 #X msg 102 65 read -resize \$1 currentAudio;
 #X obj 103 132 s sndFileLength_ms;
@@ -1664,9 +1664,9 @@ setVelocity 0 \$4 0;
 #X connect 2 0 4 0;
 #X connect 4 0 0 0;
 #X restore 440 79 pd handleSoundLengths;
-#X obj 381 477 prepend float;
-#X obj 381 499 anyreg oktanumber;
-#N canvas 23 154 1147 829 okta7 0;
+#X obj 424 411 prepend float;
+#X obj 424 433 anyreg oktanumber;
+#N canvas 21 158 1147 829 okta7 1;
 #X obj 48 540 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 48 563 t b b;
@@ -1720,7 +1720,7 @@ setVelocity 0 \$4 0;
 #X obj 614 571 t b b;
 #X obj 700 574 r count_media;
 #X obj 627 628 i;
-#X obj 628 671 s soundfile;
+#X obj 628 675 s soundfile;
 #X obj 421 458 t a b;
 #X obj 643 596 random 167;
 #X text 911 136 vertical movement;
@@ -1740,7 +1740,7 @@ setVelocity 0 \$4 0;
 #X msg 611 272 0.6;
 #X msg 562 264 12;
 #X msg 907 262 12;
-#X obj 629 647 oktaDispatch okta7;
+#X obj 629 651 oktaDispatch okta7;
 #X connect 0 0 1 0;
 #X connect 1 0 4 0;
 #X connect 2 0 4 1;
@@ -1831,8 +1831,8 @@ setVelocity 0 \$4 0;
 #X connect 68 0 27 1;
 #X connect 69 0 45 1;
 #X connect 70 0 50 0;
-#X restore 823 313 pd okta7;
-#N canvas 19 162 1147 829 okta8 0;
+#X restore 933 313 pd okta7;
+#N canvas 11 178 1147 829 okta8 0;
 #X obj 48 540 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 48 563 t b b;
@@ -1890,7 +1890,7 @@ setVelocity 0 \$4 0;
 #X obj 614 571 t b b;
 #X obj 700 574 r count_media;
 #X obj 627 628 i;
-#X obj 628 671 s soundfile;
+#X obj 627 686 s soundfile;
 #X obj 421 458 t a b;
 #X obj 643 596 random 167;
 #X text 911 136 vertical movement;
@@ -1906,7 +1906,7 @@ setVelocity 0 \$4 0;
 #X obj 697 133 + 1;
 #X msg 562 264 12;
 #X msg 907 262 12;
-#X obj 629 647 oktaDispatch okta8;
+#X obj 628 662 oktaDispatch okta8;
 #X connect 0 0 1 0;
 #X connect 1 0 4 0;
 #X connect 2 0 4 1;
@@ -1997,11 +1997,12 @@ setVelocity 0 \$4 0;
 #X connect 68 0 29 1;
 #X connect 69 0 49 1;
 #X connect 70 0 54 0;
-#X restore 823 355 pd okta8;
-#X obj 625 401 print okta-->;
+#X restore 933 355 pd okta8;
+#X obj 115 610 print okta-->;
 #X obj 400 237 del 5000;
 #X text 354 356 8;
 #X obj 547 244 print next_ms:;
+#X obj 401 387 t f f;
 #X connect 0 0 60 0;
 #X connect 2 0 61 0;
 #X connect 8 0 9 0;
@@ -2029,9 +2030,8 @@ setVelocity 0 \$4 0;
 #X connect 60 0 4 0;
 #X connect 61 0 25 0;
 #X connect 63 0 64 0;
-#X connect 64 0 65 0;
 #X connect 64 0 82 0;
-#X connect 64 0 86 0;
+#X connect 64 0 94 0;
 #X connect 65 0 53 0;
 #X connect 65 1 54 0;
 #X connect 65 2 55 0;
@@ -2040,9 +2040,8 @@ setVelocity 0 \$4 0;
 #X connect 65 5 66 0;
 #X connect 65 6 67 0;
 #X connect 65 7 68 0;
-#X connect 69 0 65 0;
 #X connect 69 0 82 0;
-#X connect 69 0 86 0;
+#X connect 69 0 94 0;
 #X connect 77 0 50 1;
 #X connect 78 0 50 1;
 #X connect 79 0 50 1;
@@ -2051,3 +2050,5 @@ setVelocity 0 \$4 0;
 #X connect 84 0 50 1;
 #X connect 84 0 93 0;
 #X connect 86 0 87 0;
+#X connect 94 0 65 0;
+#X connect 94 1 86 0;

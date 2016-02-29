@@ -4,6 +4,6 @@
 add_command("spinserver  --spatosc BasicTranslator osc.udp://localhost:18033 --scene-id okta", identifier="spinserver")
 add_command("spinviewer --scene-id okta", identifier="spinviewer")
 add_command("pd-extended -noaudio _main.pd", identifier="pd")
-#add_command("pyospat -p 18033 -L OKTA -c pyo_config.xml -a 0.7", identifier="pyospat", sleep_after=2.0)
-add_command("pyospat -p 18033 -L OKTA -c pyo_config.xml ", identifier="pyospat", sleep_after=2.0)
+add_command("pyospat -p 18033 -L OKTA -c pyo_config.xml -a 0.7", identifier="pyospat", sleep_after=2.0)
+#add_command("pyospat -p 18033 -L OKTA -c pyo_config.xml ", identifier="pyospat", sleep_after=2.0)
 add_command("/home/mis/src/okta/meterbridge.sh", identifier="meterbridge")

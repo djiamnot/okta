@@ -1,4 +1,4 @@
-#N canvas 375 166 1019 675 10;
+#N canvas 606 122 1019 675 10;
 #X declare -path abs;
 #X declare -path rj;
 #X obj 6 30 widget-spinConnect \$0;
@@ -13,7 +13,7 @@
 12 0 10 -233017 -66577 0;
 #X obj 1018 680 bng 15 250 50 0 empty __init empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 808 326 1009 665 audio_ctl+spin 1;
+#N canvas 920 362 1009 665 audio_ctl+spin 0;
 #X msg 57 67 createNode listener0 Listener;
 #X obj 550 161 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
 black red;
@@ -786,7 +786,7 @@ constrained2 constrained3 constrained4 constrained5 constrained6 constrained7
 #X connect 32 0 31 2;
 #X coords 0 -1 1 1 250 200 1 100 100;
 #X restore 926 -61 pd manual control;
-#N canvas 854 164 900 573 trigger 0;
+#N canvas 216 143 900 573 trigger 0;
 #X obj 413 83 thisdir;
 #X msg 413 127 location \$1;
 #X obj 413 62 loadbang;
@@ -797,7 +797,7 @@ constrained2 constrained3 constrained4 constrained5 constrained6 constrained7
 #X obj 415 104 makefilename %s/snd;
 #X obj 112 388 r \$0-snd;
 #X obj 149 416 r \$0-loop;
-#X obj 114 509 s \$0-to-SPIN;
+#X obj 105 525 s \$0-to-SPIN;
 #X obj 102 142 tgl 15 0 \$0-loop empty loop? 17 7 0 10 -262144 -1 -1
 0 1;
 #X obj 143 148 playlist wav 250 150 {Helvetica 10 bold} #457782 yellow
@@ -818,8 +818,6 @@ black red;
 #X obj 123 448 pack f 0 s;
 #X msg 409 391 /snd\$1 setParam path \$3 \, /snd\$1 setParam play 1
 \, /snd\$1 setParam loop \$2 \, /snd\$1 setParam mul 4;
-#X msg 123 470 /snd\$1 setParam path \$3 \, /snd\$1 setParam play 1
-\, /snd\$1 setParam loop \$2 \, /snd\$1 setParam mul 1;
 #X text 466 485 <-- mul param is for vlolume scaling. Rolled down to
 1;
 #X obj 440 215 thisdir;
@@ -846,6 +844,14 @@ black red;
 #X obj 229 380 print sndfile-->;
 #X floatatom 593 138 5 0 0 0 - - -;
 #X msg 657 28 3 okta8;
+#X msg 123 470 /snd\$1 setParam path \$3 \, /snd\$1 setParam play 1
+\, /snd\$1 setParam loop \$2 \, /snd\$1 setParam mul 10 \, /snd\$1
+setParam play 1;
+#X msg 296 410 /snd0 setParam path /home/mis/src/okta/snd/okta7/20131029-17-22-20.wav
+\, /snd0 setParam play 1 \, /snd0 setParam loop 0 \, /snd0 setParam
+mul 10;
+#X msg 503 424 /snd0 setParam path /home/mis/src/okta/snd/okta7/20131029-17-22-20.wav
+\, /snd0 setParam play 1;
 #X connect 0 0 5 0;
 #X connect 1 0 10 0;
 #X connect 2 0 0 0;
@@ -853,38 +859,40 @@ black red;
 #X connect 5 0 1 0;
 #X connect 6 0 24 0;
 #X connect 7 0 24 1;
-#X connect 10 0 40 0;
+#X connect 10 0 39 0;
+#X connect 10 0 47 0;
 #X connect 10 1 12 0;
-#X connect 10 1 48 0;
 #X connect 12 0 11 0;
 #X connect 21 0 3 0;
 #X connect 22 0 10 0;
-#X connect 23 0 32 0;
-#X connect 24 0 26 0;
-#X connect 26 0 8 0;
-#X connect 28 0 30 0;
-#X connect 30 0 29 0;
-#X connect 31 0 28 0;
-#X connect 32 0 39 0;
-#X connect 32 1 33 0;
-#X connect 33 0 34 0;
-#X connect 33 1 37 1;
-#X connect 34 0 36 0;
-#X connect 35 0 10 0;
+#X connect 23 0 31 0;
+#X connect 24 0 50 0;
+#X connect 27 0 29 0;
+#X connect 29 0 28 0;
+#X connect 30 0 27 0;
+#X connect 31 0 38 0;
+#X connect 31 1 32 0;
+#X connect 32 0 33 0;
+#X connect 32 1 36 1;
+#X connect 33 0 35 0;
+#X connect 34 0 10 0;
+#X connect 35 0 36 0;
 #X connect 36 0 37 0;
-#X connect 37 0 38 0;
-#X connect 38 0 35 0;
-#X connect 39 0 10 0;
-#X connect 40 0 24 0;
-#X connect 40 1 24 2;
-#X connect 40 2 41 0;
-#X connect 42 0 46 0;
+#X connect 37 0 34 0;
+#X connect 38 0 10 0;
+#X connect 39 0 24 0;
+#X connect 39 1 24 2;
+#X connect 39 2 40 0;
+#X connect 41 0 45 0;
+#X connect 42 0 43 0;
 #X connect 43 0 44 0;
-#X connect 44 0 45 0;
-#X connect 44 1 45 1;
-#X connect 45 0 42 0;
-#X connect 49 0 39 0;
-#X connect 50 0 32 0;
+#X connect 43 1 44 1;
+#X connect 44 0 41 0;
+#X connect 48 0 38 0;
+#X connect 49 0 31 0;
+#X connect 50 0 8 0;
+#X connect 51 0 8 0;
+#X connect 52 0 8 0;
 #X coords 0 -1 1 1 300 200 1 100 100;
 #X restore 27 202 pd trigger sounds;
 #X obj 1076 161 s \$0-to-SPIN;
@@ -916,9 +924,9 @@ black red;
 #X text 30 14 These are speaker placement coordinates (radians) stored
 as global variables;
 #X restore 404 -39 pd constants;
-#X obj 26 153 cnv 15 100 30 empty nowPlaying np:20131029-20-11-23.wav
+#X obj 26 153 cnv 15 100 30 empty nowPlaying np:20131029-17-22-20.wav
 20 12 0 14 -233017 -66577 0;
-#N canvas 499 238 1174 865 okta1 0;
+#N canvas 497 214 1174 865 okta1 0;
 #X obj 129 26 inlet;
 #X obj 129 48 t b b;
 #X obj 211 466 list-nth;
@@ -947,7 +955,7 @@ setVelocity 0 0 0;
 #X msg 129 100 0;
 #X obj 647 51 r sndFileLength_ms;
 #X obj 827 68 prepend set;
-#X msg 827 90 52848.6;
+#X msg 827 90 25727.7;
 #X obj 129 77 t b;
 #X obj 285 212 random 200;
 #X text 278 468 choose some speaker symbol;
@@ -1082,7 +1090,7 @@ setVelocity \$5 \$6 0;
 #X text 142 220 okta2;
 #X obj 276 147 r sndFileLength_ms;
 #X obj 456 164 prepend set;
-#X msg 456 186 52848.6;
+#X msg 456 186 25727.7;
 #X obj 276 244 spigot;
 #X obj 325 192 anyreg oktanumber;
 #X obj 276 169 t a b;
@@ -1179,7 +1187,7 @@ setVelocity \$5 \$6 0;
 #X obj 419 609 s soundfile;
 #X obj 286 157 r sndFileLength_ms;
 #X obj 466 174 prepend set;
-#X msg 466 196 52848.6;
+#X msg 466 196 25727.7;
 #X obj 286 248 spigot;
 #X obj 335 202 anyreg oktanumber;
 #X obj 286 179 t a b;
@@ -1275,7 +1283,7 @@ setVelocity \$5 \$6 0;
 #X obj 429 619 s soundfile;
 #X obj 296 167 r sndFileLength_ms;
 #X obj 476 184 prepend set;
-#X msg 476 206 52848.6;
+#X msg 476 206 25727.7;
 #X obj 296 258 spigot;
 #X obj 345 212 anyreg oktanumber;
 #X obj 296 189 t a b;
@@ -1371,7 +1379,7 @@ setVelocity \$5 \$6 0;
 #X obj 439 629 s soundfile;
 #X obj 306 177 r sndFileLength_ms;
 #X obj 486 194 prepend set;
-#X msg 486 216 52848.6;
+#X msg 486 216 25727.7;
 #X obj 306 268 spigot;
 #X obj 355 222 anyreg oktanumber;
 #X obj 306 199 t a b;
@@ -1434,7 +1442,7 @@ length;
 #X obj 719 508 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 719 528 s stopDelays;
-#X obj 400 291 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 400 291 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 400 313 metro 300000;
 #X obj 931 294 bng 15 250 50 0 empty trigOkta7 empty 17 7 0 10 -262144
@@ -1644,7 +1652,7 @@ setVelocity 0 \$4 0;
 #X connect 69 0 45 1;
 #X connect 70 0 27 1;
 #X restore 931 273 pd okta6;
-#X obj 257 157 cnv 15 90 30 empty oktaNo okta:0 10 12 0 14 -233017
+#X obj 257 157 cnv 15 90 30 empty oktaNo okta:6 10 12 0 14 -233017
 -258113 0;
 #X obj 131 555 makefilename %s;
 #X msg 131 578 \; oktaNo label okta:\$1;
@@ -1654,8 +1662,8 @@ setVelocity 0 \$4 0;
 #X obj 103 110 / 44.1;
 #X obj 102 39 r toSoundfiler;
 #N canvas 0 0 450 300 (subpatch) 0;
-#X array currentAudio 2.33062e+06 float 2;
-#X coords 0 1 2.33062e+06 -1 200 140 1;
+#X array currentAudio 1.13459e+06 float 2;
+#X coords 0 1 1.13459e+06 -1 200 140 1;
 #X restore 354 59 graph;
 #X msg 102 65 read -resize \$1 currentAudio;
 #X obj 103 132 s sndFileLength_ms;

@@ -25,3 +25,5 @@ if [ -f /var/tmp/lunch/master-okta-macoslunch.pid ]; then
 	cat /var/tmp/lunch/master-okta-macoslunch.pid | xargs kill -s SIGTERM
 fi
 
+# remove .DS_Store files
+find /Users/okta/src/okta -iname ".DS_Store" | xargs rm

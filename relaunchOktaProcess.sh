@@ -25,5 +25,7 @@ if [ -f /var/tmp/lunch/master-okta-macoslunch.pid ]; then
 	cat /var/tmp/lunch/master-okta-macoslunch.pid | xargs kill -s SIGTERM
 fi
 
+find /Users/okta/src/okta -iname ".DS_Store" | xargs rm
+
 sleep 15
 /Users/okta/src/okta/okta-macos.lunch &

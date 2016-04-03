@@ -43,18 +43,19 @@ OKTA software is a sound file player with multichannels spacialisation capabilit
 ** SpinServer
    SpinServer may need some special configuration using a hidden file in user's home directory, located at =~/.spinFramework/args=
 ** pyospat
-   The configuration of pyospat is done via an XML file located in the OKTA directory and command line switches. The XML file can be edited with any text editor and it allows to customise some high-level sound server behaviour, such as sampling rate, audio backend, audio buffer size. 
-* Components
-** Play list
-** Looping player
-   
-* Presets
-* Hacking
+   The configuration of pyospat is done via an XML file located in the OKTA directory and command line switches. The XML file can be edited with any text editor and it allows to customise some high-level sound server behaviour, such as sampling rate, audio backend, audio buffer size.
+** lanching
+   There is a script that takes care of (re)starting all relevant processes, which are:
+- spinserver
+- pyospat
+- pd-extended
+- Quick Time Broadcaster
+- okta_2015 camera app
+The script is called by cron, the process scheduler.
+see /crontab -e/ for editing the times the script needs to be run.
 * Implementation details
 ** OKTA behaviors
    This chart (Figue [[fig:Behaviors]]) illustrates the types of movements and beahvaiors:
    #+CAPTION: OKTA behaviors
    #+NAME:   fig:Behaviors
    [[./img/Okta_Behaviors.png]]
-* Questions to Steve and Doug					   :noexport:
-- what is "cube bound" and "not cube bound"

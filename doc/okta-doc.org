@@ -1,61 +1,91 @@
-#+EXPORT_TITLE: "OKTA software documentation"
-#+LATEX_CLASS: article
-#+LATEX_CLASS_OPTIONS: [letter]
-#+LATEX_HEADER: \oddsidemargin 0cm
-#+LATEX_HEADER: \evensidemargin 0cm
-#+LATEX_HEADER: \textwidth 15.5cm
-#+LATEX_HEADER: \topmargin -1cm
-#+LATEX_HEADER: \textheight 23cm
-#+LATEX_HEADER: \usepackage{fancyhdr}
-#+LATEX_HEADER: \pagestyle{fancy}
-#+LATEX_HEADER: \fancyhead{}
-#+LATEX_HEADER: \fancyhead[LE,RO]{Mois Multi}
-#+LATEX_HEADER: \fancyhead[RE,LO]{Totem Contemporain}
-#+LATEX_HEADER: \fancyfoot[CE,CO]{Michał Seta | 514.575.9243 | mis@artengine.ca}
-#+OPTIONS: num:t
-#+OPTIONS: toc:t
-#+OPTIONS: author:nil
-#+OPTIONS: timestamp:t date:t d:nil <:nil p:nil tags:nil
-#+LANGUAGE: fr
-\thispagestyle{fancy}
+# #+EXPORT_TITLE: "OKTA software documentation"
+# #+LATEX_CLASS: article
+# #+LATEX_CLASS_OPTIONS: [letter]
+# #+LATEX_HEADER: \oddsidemargin 0cm
+# #+LATEX_HEADER: \evensidemargin 0cm
+# #+LATEX_HEADER: \textwidth 15.5cm
+# #+LATEX_HEADER: \topmargin -1cm
+# #+LATEX_HEADER: \textheight 23cm
+# #+LATEX_HEADER: \usepackage{fancyhdr}
+# #+LATEX_HEADER: \pagestyle{fancy}
+# #+LATEX_HEADER: \fancyhead{}
+# #+LATEX_HEADER: \fancyhead[LE,RO]{Mois Multi}
+# #+LATEX_HEADER: \fancyhead[RE,LO]{Totem Contemporain}
+# #+LATEX_HEADER: \fancyfoot[CE,CO]{Michał Seta | 514.575.9243 | mis@artengine.ca}
+# #+OPTIONS: num:t
+# #+OPTIONS: toc:t
+# #+OPTIONS: author:nil
+# #+OPTIONS: timestamp:t date:t d:nil <:nil p:nil tags:nil
+# #+LANGUAGE: fr
+# \thispagestyle{fancy}
+#+OPTIONS: date:t num:t toc:t H:3
+#+LATEX_CLASS: tuftehandout
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+
 #+TITLE: OKTA software documentation
 #+AUTHOR: Michal Seta
 #+EMAIL: mis@artengine.ca
 
 * Overview
 
-OKTA software is a sound file player with multichannels spacialisation capability built specifically for the Sound Field installation in the June Callwood park in Toronto. The sound engine reacts to the to messages sent from another component that selects the preset scenes based on the cloud formation at various times of the day and according to seasons. The scene presets consist of sound file choices and the sound movement through the space. The sounds are spacialized over 24 speakers distributed around the park.
+OKTA software is a sound file player with multichannels spacialisation capability built specifically for the Sound Field installation in the June Callwood park in Toronto: http://oktaproject.ca/. The sound engine reacts to the to messages sent from another component that selects the preset scenes based on the cloud formation at various times of the day and according to seasons. The scene presets consist of sound file choices and the sound movement through the space. The sounds are spacialized over 24 speakers distributed around the park. 
 
 * Running
 ** Installation requirements
    - pdextended version 0.42.5 (not tested with any other version)
    - oktadb external (Geoffrey Jones)
      It's actually included in the package in source form
-   - rjlib (https://github.com/rjdj/rjlib)
-   - xjimmies (http://code.sat.qc.ca/trac/pdsheefa)
-   - spinframework (htp://spinframework.com)
+   - spinframework \sidenote{htp://spinframework.com}
    - pyo
    - jack
-   - pyospat
+   - pyospat \sidenote{pyospat is available at https://github.com/djiamnot/pyospat and it's a project that builds upon http://ajaxsoundstudio.com/software/pyo/ }
      - twisted
      - txosc
+   - lunch \sidenote{https://github.com/sat-metalab/lunch}
 * Configuration
+#+begin_src ditaa :file img/okta-flow.png
++--------------+      +--------------+	   +--------------+	  +---------------+
+|  {io}	       |      |	             | 	   |   {s}        | 	  |  cBLU         |
+|              +------+              +-----+              +-------+               |
+|  okta_2015   |      |   pd         | 	   |   spin       |    	  |  pyospat      |
+|              |      |              |	   |              |	  |               |
++--------------+      +--------------+	   +--------------+	  +---------------+
+#+end_src
 ** SpinServer
-   SpinServer may need some special configuration using a hidden file in user's home directory, located at =~/.spinFramework/args=
+   SpinServer may need some special configuration using a hidden file in user's home directory, located at =~/.spinFramework/args=. The current configuration is:
+#+BEGIN_SRC 
+--scene-id okta --spatosc BasicTranslator osc.udp://localhost:18033
+#+END_SRC
+
 ** pyospat
    The configuration of pyospat is done via an XML file located in the OKTA directory and command line switches. The XML file can be edited with any text editor and it allows to customise some high-level sound server behaviour, such as sampling rate, audio backend, audio buffer size.
-** lanching
+** launching
    There is a script that takes care of (re)starting all relevant processes, which are:
-- spinserver
-- pyospat
-- pd-extended
-- Quick Time Broadcaster
-- okta_2015 camera app
+- =spinserver=
+- =pyospat=
+- =pd-extended=
+- =QuickTime Broadcaster=
+- =okta_2015= camera app
 The script is called by cron, the process scheduler.
-see /crontab -e/ for editing the times the script needs to be run.
+see =crontab -e= for editing the times the script needs to be run at.
+
+*** lunch
+
+=lunch= is process launcher. The version installed with OKTA (0.6) requires python2.7. It will not run with python3.0 or higher. 
+
 * Implementation details
 ** OKTA behaviors
-   This chart (Figue [[fig:Behaviors]]) illustrates the types of movements and beahvaiors:
+   This chart (Figue [[fig:Behaviors]]) illustrates the types of movements and beahvaiors. The behaviors are implemented as in pd patches and describe 
    #+CAPTION: OKTA behaviors
    #+NAME:   fig:Behaviors
    [[./img/Okta_Behaviors.png]]
+
+* References
+- lunch: https://github.com/sat-metalab/lunch
+- pyospat: https://github.com/djiamnot/pyospat
+- pyo: http://ajaxsoundstudio.com/software/pyo/
+
+* Footnotes
+
+
+
